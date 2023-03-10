@@ -1,0 +1,47 @@
+"Gas flaring emissions in MtCO₂"
+;Germany;Spain;Switzerland;"United Kingdom"
+1990;3.8405;1.769;0.026342;6.7871
+1991;3.619;1.7538;0.039182;6.2603
+1992;3.5398;1.8549;0.036222;6.4442
+1993;3.3174;1.8384;0.039901;6.6356
+1994;3.2199;2.0894;0.040821;7.4255
+1995;3.0596;1.8633;0.038926;8.3412
+1996;3.2127;1.7943;0.044463;8.7068
+1997;3.2387;1.8151;0.041654;7.2107
+1998;3.1676;1.9421;0.042367;7.4484
+1999;3.1125;1.9937;0.042555;6.1706
+2000;2.9918;2.1326;0.038867;6.446
+2001;2.9688;2.038;0.041187;6.4931
+2002;2.9652;2.0686;0.041173;6.1787
+2003;3.0024;1.9004;0.038876;5.5631
+2004;2.9277;2.2336;0.043641;5.6188
+2005;2.9533;2.2967;0.057521;5.9912
+2006;3.0686;2.4162;0.044924;5.2717
+2007;2.9883;2.5653;0.04241;5.4171
+2008;2.9444;2.3041;0.044314;4.7499
+2009;2.5749;2.2565;0.043516;4.8805
+2010;2.5813;2.2798;0.045505;4.738
+2011;2.6726;2.7391;0.056276;4.453
+2012;2.6571;3.3792;0.047083;3.6458
+2013;2.6888;3.8345;0.037864;4.216
+2014;2.4782;4.0646;0.03341;4.436
+2015;2.3737;3.7067;0.027534;4.6412
+2016;2.3438;3.7636;0.028309;4.5586
+2017;2.2669;3.8231;0.031167;4.3013
+2018;2.0075;3.794;0.02789;4.4764
+2019;2.0284;3.6449;0.033352;4.2832
+2020;1.8149;3.5583;0.026395;3.4426
+2021;1.8074;3.5583;0.026395;3.4738
+
+Sources
+"Gas flaring";"For sources and methods, see Friedlingstein et al. (2022), Andrew and Peters (2022) and Peters et al. (2011).
+
+Friedlingstein, P., O’Sullivan, M., Jones, M.W., Andrew, R.M., Gregor, L. et al. (2022): Global Carbon Budget 2022, Earth System Science Data. Available at: <a href=""https://doi.org/10.5194/essd-14-4811-2022"" target=""_blank""> Friedlingstein et al., 2022.</a>
+
+Andrew, R.M. and Peters, G.P. (2022): The Global Carbon Project's fossil CO<sub>2</sub> emissions dataset. October, 17, 2022. Available at: <a href=""https://zenodo.org/record/7215364"" target=""_blank"">Andrew and Peters, 2022.</a>
+
+Peters, G.P., Minx, J.C., Weber, C.L., and O. Edenhofer (2011), Growth in emission transfers via international trade from 1990 to 2008. Proceedings of the National Academy of Sciences (PNAS), 108(21), 8903-8908, Available at: <a href=""https://doi.org/10.1073/pnas.1006388108"" target=""_blank"">Peters et al., 2011.</a>
+
+The use of data is conditional on citing the original data sources. 
+
+Data for years 2020 and 2021 are preliminary."
