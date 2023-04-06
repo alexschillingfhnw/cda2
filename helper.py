@@ -1,8 +1,12 @@
 import pandas as pd
+import numpy as np
 import seaborn as sns
 import matplotlib.pyplot as plt
 import hvplot.pandas
-import numpy as np
+import hvplot.pandas
+import holoviews as hv
+from holoviews import opts
+hv.extension('bokeh')
 
 def wrangle_dataframe(df, name):
 
@@ -49,4 +53,22 @@ def add_growth_columns(df, new_col_absolute, new_col_percent, growth_col):
 def lineplot(df, x_var, y_var, by_var, title_var, width = 700, height = 400):
     plot = df.hvplot.line(x = x_var, y = y_var, by = by_var, width = width, height = height)
     plot.opts(title = title_var)
+    display(plot)
+
+
+def stacked_area(df, country):
+
+    plot = df.hvplot.area(
+        x = "Year",
+        y = ["Electricity from solar (TWh)", 
+             "Electricity from hydro (TWh)", 
+             "Electricity from wind (TWh)", 
+             "Other renewables including bioenergy (TWh)"
+        ],
+        stacked = True,
+        xlabel = "Year",
+        ylabel = "Renewable Energy Production (TWh)",
+        title = "Renewable Energy Production in {} (1990-2022)".format(country),
+    )
+
     display(plot)
