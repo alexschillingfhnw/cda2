@@ -72,3 +72,15 @@ def stacked_area(df, country):
     )
 
     display(plot)
+
+
+def scatter_plot(df, x_var, y_var, country):
+    plot = df.hvplot.scatter(
+        x = x_var,
+        y = y_var,
+        xlabel = x_var,
+        ylabel = y_var,
+        title = "Renewable Energy Production in {} (1990-2022)".format(country),
+    )
+
+    display(plot)
