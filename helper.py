@@ -25,13 +25,17 @@ def wrangle_dataframe(df, name):
     # reset index
     df.reset_index(drop = True, inplace = True)
 
-    df_pivot = df.pivot(index = 'Year', columns = 'Country', values = name)
-    df_pivot.head()
+    if name == "Annual CO₂ emissions":
+        # convert the values to billions
+        df[name] = df[name] / 1000000000
+
+    #df_pivot = df.pivot(index = 'Year', columns = 'Country', values = name)
+    #df_pivot.head()
 
     return df
 
 
-def add_growth_columns(df, new_col_absolute, new_col_percent, growth_col):
+def add_change_columns(df, new_col_absolute, new_col_percent, growth_col):
 
     # add new columns with difference and percentage change
     df[new_col_absolute] = df[growth_col].diff().round(3)
@@ -39,6 +43,21 @@ def add_growth_columns(df, new_col_absolute, new_col_percent, growth_col):
 
     # if year is 1990, set growth to 0 (there is no previous year)
     df.loc[df.Year == 1990, new_col_absolute] = 0
+    df.loc[df.Year == 1990, new_col_percent] = 0
+
+    # replace NaN with 0
+    df.fillna(0, inplace = True)
+
+    # replace inf with 0
+    df.replace([np.inf, -np.inf], 0, inplace = True)
+
+    return df
+
+
+def add_change_columns_since_1990(df, new_col_percent, growth_col):
+    # add new colum with percentage change since 1990
+    df[new_col_percent] = df[growth_col].pct_change(periods = 30).round(3) * 100
+
     df.loc[df.Year == 1990, new_col_percent] = 0
 
     # replace NaN with 0
