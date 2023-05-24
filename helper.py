@@ -1,12 +1,20 @@
+#%pip install panel
+#%pip install hvplot
+#%pip install jupyter_bokeh
+import panel as pn
+import hvplot
+import holoviews as hv
+from panel.interact import interact
+pn.extension()
 import pandas as pd
 import numpy as np
 import seaborn as sns
 import matplotlib.pyplot as plt
 import hvplot.pandas
-import hvplot.pandas
 import holoviews as hv
 from holoviews import opts
 hv.extension('bokeh')
+
 
 def wrangle_dataframe(df, name):
 
