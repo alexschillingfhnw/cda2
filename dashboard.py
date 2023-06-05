@@ -874,379 +874,387 @@ text_wasser_spanien_2 = textblock(
 # In[39]:
 
 
-width = 900
-small_width = 650
-margin = 0
-template = pn.template.FastListTemplate(
-    title = "Policy Advices für eine grüne Zukunft",
-    sidebar_width = 375,
-    sidebar = [
-        textblock(
-            title = "Allgemeine Informationen",
-            text = text_allgemeine_infos
-        ),
-        pn.Spacer(height=20),
-        textblock(
-            title = "Einstellungen",
-            text = "Mittels Sliders und Buttons ist es möglich die einzelnen Plots auf das Jahr und das Land zu beschränken"
-        ),
-        pn.Row(
-            country_selector,
-            margin=(0, 5)
-        ),
-        pn.Row(
-            start_year_slider,
-            margin=(10, 5)
-        ),
-        pn.Row(
-            end_year_slider,
-            margin=(10, 5)
-        ),
-        #pn.pane.PNG('sidebar_image.png', sizing_mode='scale_width'),
-        #pn.pane.Markdown("Bildquelle: [Kasakata](https://kasakata.co.id/wp-content/uploads/2022/03/eco-green-thumbnail-kasakata.jpg)"),
-    ],
-    
-    main = [
-        pn.Row(
+def main():
+
+    width = 900
+    small_width = 650
+    margin = 0
+    template = pn.template.FastListTemplate(
+        title = "Policy Advices für eine grüne Zukunft",
+        sidebar_width = 375,
+        sidebar = [
             pn.Column(
-                "# Willkommen!",
-                pn.Card(
-                    text_einleitung,
-                    title = "Einleitung",
-                    margin = (5,25),
-                    sizing_mode = 'stretch_width',
-                    collapsed = True
+                pn.pane.Markdown("Allgemeine Informationen"),
+                pn.pane.Markdown(text_allgemeine_infos),
+            
+                pn.Spacer(height=20),
+
+                pn.pane.Markdown("Einstellungen"),
+                pn.pane.Markdown("Mittels Sliders und Buttons ist es möglich die einzelnen Plots auf das Jahr und das Land zu beschränken"),
+
+                pn.Row(
+                    country_selector,
+                    margin=(0, 5)
                 ),
-                pn.Card(
-                    text_sidebar,
-                    title = "Anleitung",
-                    margin = (5,25),
-                    sizing_mode = 'stretch_width',
-                    collapsed = True
+                pn.Row(
+                    start_year_slider,
+                    margin=(10, 5)
                 ),
-                pn.Spacer(height=30),
-                sizing_mode = 'stretch_width'
-            ),
-            sizing_mode = 'stretch_width'
-        ),
-        pn.Row(
-            pn.Column(
-                "# Datastory",
-
-# ------------- Co2 Emissionen Plots -------------
-                pn.Card(
-                    pn.Column(
-                        pn.Column(
-                            pn.Column(
-                                pn.pane.Markdown(text_co2_emissionen_1, sizing_mode='stretch_width'),
-                                plot_co2.panel(),
-                                sizing_mode='stretch_width'
-                            ),
-                            pn.pane.Markdown("Datenquelle: [Our World in Data - CO₂ Emissions](https://ourworldindata.org/co2-emissions)"),
-                            pn.Column(
-                                pn.pane.Markdown(text_co2_emissionen_2, sizing_mode='stretch_width'),
-                                plot_co2_km2.panel(),
-                                sizing_mode='stretch_width'
-                            ),
-                            pn.pane.Markdown("Datenquelle: [Our World in Data - CO₂ Emissions](https://ourworldindata.org/co2-emissions)"),
-                            sizing_mode='stretch_width'
-                        ),
-                        sizing_mode='stretch_width'
-                    ),
-                    text_co2_emissionen_3,
-                    title="CO₂ Emissionen",
-                    margin=(5, 25),
-                    sizing_mode='stretch_width',
-                    collapsed = True
+                pn.Row(
+                    end_year_slider,
+                    margin=(10, 5)
                 ),
-
-# ------------- Energy Consumtion Plots -------------
-                pn.Card(
-                    pn.Column(
-                        pn.Column(
-                            pn.pane.Markdown(text_energieverbrauch_1, sizing_mode = 'stretch_width'),
-                            plot_energy_cons.panel(),
-                            sizing_mode = 'stretch_width'
-                        ),
-                        pn.pane.Markdown("Datenquelle: [Our World in Data - CO₂ Emissions](https://ourworldindata.org/co2-emissions)"),
-                        pn.Column(
-                            pn.pane.Markdown(text_energieverbrauch_2, sizing_mode = 'stretch_width'),
-                            plot_energy_cons_cap.panel(),
-                            sizing_mode = 'stretch_width'
-                        ),
-                        pn.pane.Markdown("Datenquelle: [Our World in Data - CO₂ Emissions](https://ourworldindata.org/co2-emissions)"),
-                        sizing_mode = 'stretch_width'
+                pn.Row(
+                    #pn.pane.PNG('sidebar_image.png'),
+                    #pn.pane.Markdown("Bildquelle: [Kasakata](https://kasakata.co.id/wp-content/uploads/2022/03/eco-green-thumbnail-kasakata.jpg)"),
+                )
+            )
+        ],
+        
+        main = [
+            pn.Row(
+                pn.Column(
+                    "# Willkommen!",
+                    pn.Card(
+                        text_einleitung,
+                        title = "Einleitung",
+                        margin = (5,25),
+                        sizing_mode = 'stretch_width',
+                        collapsed = True
                     ),
-                    text_energieverbrauch_3,
-                    title = "Vergleich Energieverbrauch",
-                    margin = (5,25),
-                    sizing_mode = 'stretch_width',
-                    collapsed = True
-                ),
-
-# ------------- Vergleich der Länder (erneuerbare Energien) -------------
-
-
-                pn.Card(
-                    pn.Column(
-                        pn.pane.Markdown(text_energieveproduktion_1, sizing_mode='stretch_width'),
-                        pn.Column(
-                            renewable_energy_selector,
-                            plot_renewable_energy.panel(),
-                            sizing_mode='stretch_width'
-                        ),
-                        pn.pane.Markdown("Datenquelle: [Our World in Data - CO₂ Emissions](https://ourworldindata.org/co2-emissions)"),
-                        pn.pane.Markdown(text_erneuerbare_energien_1, sizing_mode='stretch_width'),
-                        margin=(10, 0),
-                        sizing_mode='stretch_width'
-                    ),
-                    title = "Vergleich Energieproduktion",
-                    margin = (5,25),
-                    sizing_mode = 'stretch_width',
-                    collapsed = True
-                ),
-                
-                
-# ------------- Entwicklung im Zeitverlauf -------------
-                pn.Card(
-
-# ---------------- DEUTSCHLAND ----------------
-
-                    pn.Row(
-                        pn.Card(
-                            text_solar_deutschland,
-                            title = "Solarenergie in Deutschland",
-                            margin = (5,25),
-                            sizing_mode = 'stretch_width',
-                            collapsed = True
-                        ),
-                        sizing_mode = 'stretch_width'
-                    ),
-                    pn.Row(
-                        pn.Card(
-                            text_wind_deutschland,
-                            title = "Windenergie in Deutschland",
-                            margin = (5,25),
-                            sizing_mode = 'stretch_width',
-                            collapsed = True
-                        ),
-                        sizing_mode = 'stretch_width'
-                    ),
-                    pn.Row(
-                        pn.Card(
-                            text_wasser_deutschland,
-                            title = "Wasserkraft in Deutschland",
-                            margin = (5,25),
-                            sizing_mode = 'stretch_width',
-                            collapsed = True
-                        ),
-                        sizing_mode = 'stretch_width'              
-                    ),
-
-# ---------------- GROSSBRITANNIEN ----------------
-
-                    pn.Row(
-                        pn.Card(
-                            text_solar_grossbritannien_1,text_solar_grossbritannien_2, text_solar_grossbritannien_3,
-                            pn.pane.Markdown("""Textquellen:
-                            [About the FIT scheme](https://www.ofgem.gov.uk/environmental-and-social-schemes/feed-tariffs-fit#:~:text=The%20FIT%20scheme%20was%20launched,Capacity%20and%20Functions),
-                            [Scheme Closure](https://www.ofgem.gov.uk/environmental-and-social-schemes/feed-tariffs-fit/scheme-closure),
-                            [Contracts for Difference (CfD)](https://www.lowcarboncontracts.uk/contracts-for-difference),
-                            [About the Smart Export Guarantee (SEG)](https://www.ofgem.gov.uk/environmental-and-social-schemes/smart-export-guarantee-seg#:~:text=About%20the%20Smart%20Export%20Guarantee%20(SEG)&text=The%20SEG%20requires%20some%20electricity,providing%20certain%20criteria%20are%20met.)
-                            """                 
-                            ),
-                            title = "Solarenergie in Grossbritannien",
-                            margin = (5,25),
-                            sizing_mode = 'stretch_width',
-                            collapsed = True
-                        ),
-                        sizing_mode = 'stretch_width'
-                    ),
-                    pn.Row(
-                        pn.Card(
-                            text_wind_grossbritannien_1, text_wind_grossbritannien_2,
-                            pn.pane.Markdown("""Textquellen:
-                            [Grossbritannien gibt Ziele für Offshore Windenergie 2030 bekannt](https://www.iwr.de/news/grossbritannien-gibt-ziele-fuer-offshore-windenergie-2030-bekannt-news35869),
-                            [Can the UK achieve its 50 GW offshore wind target by 2030?](https://www.dnv.com/article/can-the-uk-achieve-its-50-gw-offshore-wind-target-by-2030--224379)
-                            """                 
-                            ),
-                            title = "Windenergie in Grossbritannien",
-                            margin = (5,25),
-                            sizing_mode = 'stretch_width',
-                            collapsed = True
-                        ),
-                        sizing_mode = 'stretch_width'
-                    ),
-                    pn.Row(
-                        pn.Card(
-                            text_wasser_grossbritannien_1,
-                            pn.pane.Markdown("""Textquellen:
-                            [Renewables Obligation (RO) - iea](https://www.iea.org/policies/4182-renewables-obligation-ro),
-                            [Renewables Obligation (RO) - ofgem](https://www.ofgem.gov.uk/environmental-and-social-schemes/renewables-obligation-ro)
-                            """                 
-                            ),
-                            title = "Wasserkraft in Grossbritannien",
-                            margin = (5,25),
-                            sizing_mode = 'stretch_width',
-                            collapsed = True
-                        ),
-                        sizing_mode = 'stretch_width'     
-                    ),
-
-# ---------------- SCHWEIZ ----------------
-
-                    pn.Row(
-                        pn.Card(
-                            text_solar_schweiz_1,
-                            text_solar_schweiz_2,
-                            text_solar_schweiz_3,
-                            pn.Column(
-                                pn.pane.Markdown("### Weitere Daten zur Solarenergie in der Schweiz"),
-                                pn.Row(
-                                    pn.pane.PNG('schweiz_sonnenschein.png', sizing_mode = 'scale_width'),
-                                    pn.pane.PNG('schweiz_ausbau_solaranlagen.png', sizing_mode = 'scale_width'),
-                                ),
-                                pn.Row(
-                                    pn.pane.Markdown("Quelle: MeteoSchweiz - Klimanormwerte Sonnenscheindauer 1981-2010", sizing_mode = 'stretch_width'),
-                                    pn.pane.Markdown("Quelle: Bundesamt für Energie - Ausbau der Solaranlagen 2023", sizing_mode = 'stretch_width'),
-                                ),
-                                pn.Row(
-                                    pn.pane.Markdown(text_solar_schweiz_4, sizing_mode = 'stretch_width'),
-                                    pn.pane.Markdown(text_solar_schweiz_5, sizing_mode = 'stretch_width'),
-                                ),
-                                sizing_mode = 'stretch_width'
-                            ),
-                            text_solar_schweiz_6,
-                            pn.pane.Markdown("""Textquellen:
-                            [UVEK - Elektrizitätsproduktionsanlagen in der Schweiz](https://www.uvek-gis.admin.ch/BFE/storymaps/EE_Elektrizitaetsproduktionsanlagen/),
-                            [SRF - Solaranlagen in den Bergen: Schweizer Berghilfe lanciert Solarprogramm für Kleinunternehmen](https://www.srf.ch/news/schweiz/solaranlagen-in-den-bergen-schweizer-berghilfe-lanciert-solarprogramm-fuer-kleinunternehmen),
-                            [SRF - Energiewende in den Alpen: Jetzt beginnt das Wettrennen um die Solar-Bundessubventionen](https://www.srf.ch/news/schweiz/energiewende-in-den-alpen-jetzt-beginnt-das-wettrennen-um-die-solar-bundessubventionen)
-                            """
-                            ),
-                            title = "Solarenergie in der Schweiz",
-                            margin = (5,25),
-                            sizing_mode = 'stretch_width',
-                            collapsed = True
-                        ),
-                        sizing_mode = 'stretch_width'
-                    ),
-                    pn.Row(
-                        pn.Card(
-                            text_wind_schweiz_1,
-                            text_wind_schweiz_2,
-                            pn.Column(
-                                pn.pane.Markdown("### Weitere Daten zur Windenergie in der Schweiz"),
-                                pn.Row(
-                                    pn.pane.PNG('schweiz_windgeschwindigkeit.png', sizing_mode = 'scale_width'),
-                                    pn.pane.PNG('schweiz_wind_zonen.png', sizing_mode = 'scale_width'),
-                                    pn.pane.PNG('schweiz_europa_wind.png', sizing_mode = 'scale_width'),
-                                ),
-                                pn.Row(
-                                    pn.pane.Markdown("Quelle: OpenData Swiss - Windatlas Schweiz", sizing_mode = 'stretch_width'),
-                                    pn.pane.Markdown("Quelle: OpenData Swiss - Windatlas Schweiz", sizing_mode = 'stretch_width'),
-                                    pn.pane.Markdown("Quelle: Universität Oldenburg - Ein Windatlas für Europa", sizing_mode = 'stretch_width'),
-                                ),
-                                sizing_mode = 'stretch_width'
-                            ),
-                            text_wind_schweiz_3,
-                            pn.pane.Markdown("""Textquellen:    
-                            [Der Bundesrat - Beschleunigung Bewilligungsverfahren](https://www.admin.ch/gov/de/start/dokumentation/medienmitteilungen.msg-id-87045.html),
-                            [Suisse EOLE - Kostenvergleiche](https://suisse-eole.ch/de/news/irena-wind-und-solarstrom-schlagen-im-kostenvergleich-selbst-guenstigste-kohlekonkurrenten/),
-                            [Suisse EOLE - Windenergie](https://suisse-eole.ch/de/windenergie/windparks/),
-                            [Suisse EOLE - Factsheet](https://suisse-eole.ch/wp-content/uploads/2023/04/20_SE_02_FACTSHEET_Anpassung_D_V3_230404.pdf)
-                            """
-                            ),
-                            title = "Windenergie in der Schweiz",
-                            margin = (5,25),
-                            sizing_mode = 'stretch_width',
-                            collapsed = True
-                        ),
-                        sizing_mode = 'stretch_width'
-                    ),
-                    pn.Row(
-                        pn.Card(
-                            text_wasser_schweiz_1,
-                            text_wasser_schweiz_2,
-                            pn.pane.Markdown("Textquellen: [BFE - Erneuerbare Energien Wasserkraft](https://www.bfe.admin.ch/bfe/de/home/versorgung/erneuerbare-energien/wasserkraft.html)"),
-                            title = "Wasserkraft in der Schweiz",
-                            margin = (5,25),
-                            sizing_mode = 'stretch_width',
-                            collapsed = True
-                        ),
-                        sizing_mode = 'stretch_width'            
-                    ),
-
-# ---------------- SPANIEN ----------------
-                    pn.Row(
-                        pn.Card(
-                            text_solar_spanien_1,
-                            text_solar_spanien_2,
-                            text_solar_spanien_3,
-                            text_solar_spanien_4,
-                            pn.pane.Markdown("""Textquellen:  
-                            [FAZ - Spanien Abschied von der Solar-Weltmacht](https://www.faz.net/aktuell/wirtschaft/wirtschaftspolitik/spanien-abschied-von-der-solar-weltmacht-1227724.html),
-                            [TAZ - Erneuerbare Energien in Südspanien](https://taz.de/Erneuerbare-Energien-in-Suedspanien/!5830308/),
-                            [Energiezukunft - Abschaffung der Sonnensteuer](https://www.energiezukunft.eu/politik/spanien-beschliesst-abschaffung-der-sonnensteuer/),
-                            [Idealista - Boom von Solarstrom in Spanien](https://www.idealista.com/de/news/leben-in-spanien/2020/09/23/7761-ein-neues-gesetz-zum-eigenverbrauch-laesst-den-solarstrom-in-spanien-wieder-boomen),
-                            [German Energy Solutions - Spanien Marktanalyse](https://www.german-energy-solutions.de/GES/Redaktion/DE/Publikationen/Marktanalysen/2021/zma-spanien-2021-h2.pdf?__blob=publicationFile&v=4),
-                            [Mariscal Abogados - Einspeisevergütungen Spanien](https://www.mariscal-abogados.de/die-abschaffung-des-einspeiseverguetung-system-in-spanien/)  
-                            """
-                            ),
-                            title = "Solarenergie in Spanien",
-                            margin = (5,25),
-                            sizing_mode = 'stretch_width',
-                            collapsed = True
-                        ),
-                        sizing_mode = 'stretch_width'
-                    ),
-                    pn.Row(
-                        pn.Card(
-                            text_wind_spanien_1,
-                            text_wind_spanien_2,
-                            pn.pane.Markdown("""Textquellen:  
-                            [Roedl - Erneuerbare Energien Neue Abgaben](https://www.roedl.de/themen/erneuerbare-energien/neue-abgaben-f%C3%BCr-die-stromerzeuger-in-spanien),
-                            [German Energy Solutions - Ausschreibungen in Spanien](https://www.german-energy-solutions.de/GES/Redaktion/DE/Standardartikel/Marktinformationen/Ausschreibungen/2022/20220810-spanien.html),
-                            [Climate EC Europa - Climate Energy Framework](https://climate.ec.europa.eu/eu-action/climate-strategies-targets/2030-climate-energy-framework_de)
-                            """
-                            ),
-                            title = "Windenergie in Spanien",
-                            margin = (5,25),
-                            sizing_mode = 'stretch_width',
-                            collapsed = True
-                        ),
-                        sizing_mode = 'stretch_width'
-                    ),
-                    pn.Row(
-                        pn.Card(
-                            text_wasser_spanien_1,
-                            text_wasser_spanien_2,
-                            pn.pane.Markdown("""Textquellen:  
-                            [Costa Nachrichten - Energiewende](https://www.costanachrichten.com/spanien/politik-wirtschaft/spanien-erneuerbare-energien-energiewende-2022-gas-solarenergie-windkraft-biomasse-strompreis-91737644.html)
-                            """
-                            ),
-                            title = "Wasserkraft in Spanien",
-                            margin = (5,25),
-                            sizing_mode = 'stretch_width',
-                            collapsed = True
-                        ),
-                        sizing_mode = 'stretch_width'              
+                    pn.Card(
+                        text_sidebar,
+                        title = "Anleitung",
+                        margin = (5,25),
+                        sizing_mode = 'stretch_width',
+                        collapsed = True
                     ),
                     pn.Spacer(height=30),
-                    title = "Ereignisse in der Energieproduktion",
-                    margin = (5,25),
-                    sizing_mode = 'stretch_width',
-                    collapsed = True
+                    sizing_mode = 'stretch_width'
                 ),
-                pn.Spacer(height=30),
                 sizing_mode = 'stretch_width'
             ),
-            sizing_mode = 'stretch_width'
-        ),
-    ],
-    accent_base_color = '#2E8B57',
-    header_background = '#2E8B57',
-)
+            pn.Row(
+                pn.Column(
+                    "# Datastory",
 
-#template.show()
-pn.serve(template)
+    # ------------- Co2 Emissionen Plots -------------
+                    pn.Card(
+                        pn.Column(
+                            pn.Column(
+                                pn.Column(
+                                    pn.pane.Markdown(text_co2_emissionen_1, sizing_mode='stretch_width'),
+                                    plot_co2.panel(),
+                                    sizing_mode='stretch_width'
+                                ),
+                                pn.pane.Markdown("Datenquelle: [Our World in Data - CO₂ Emissions](https://ourworldindata.org/co2-emissions)"),
+                                pn.Column(
+                                    pn.pane.Markdown(text_co2_emissionen_2, sizing_mode='stretch_width'),
+                                    plot_co2_km2.panel(),
+                                    sizing_mode='stretch_width'
+                                ),
+                                pn.pane.Markdown("Datenquelle: [Our World in Data - CO₂ Emissions](https://ourworldindata.org/co2-emissions)"),
+                                sizing_mode='stretch_width'
+                            ),
+                            sizing_mode='stretch_width'
+                        ),
+                        text_co2_emissionen_3,
+                        title="CO₂ Emissionen",
+                        margin=(5, 25),
+                        sizing_mode='stretch_width',
+                        collapsed = True
+                    ),
 
+    # ------------- Energy Consumtion Plots -------------
+                    pn.Card(
+                        pn.Column(
+                            pn.Column(
+                                pn.pane.Markdown(text_energieverbrauch_1, sizing_mode = 'stretch_width'),
+                                plot_energy_cons.panel(),
+                                sizing_mode = 'stretch_width'
+                            ),
+                            pn.pane.Markdown("Datenquelle: [Our World in Data - CO₂ Emissions](https://ourworldindata.org/co2-emissions)"),
+                            pn.Column(
+                                pn.pane.Markdown(text_energieverbrauch_2, sizing_mode = 'stretch_width'),
+                                plot_energy_cons_cap.panel(),
+                                sizing_mode = 'stretch_width'
+                            ),
+                            pn.pane.Markdown("Datenquelle: [Our World in Data - CO₂ Emissions](https://ourworldindata.org/co2-emissions)"),
+                            sizing_mode = 'stretch_width'
+                        ),
+                        text_energieverbrauch_3,
+                        title = "Vergleich Energieverbrauch",
+                        margin = (5,25),
+                        sizing_mode = 'stretch_width',
+                        collapsed = True
+                    ),
+
+    # ------------- Vergleich der Länder (erneuerbare Energien) -------------
+
+
+                    pn.Card(
+                        pn.Column(
+                            pn.pane.Markdown(text_energieveproduktion_1, sizing_mode='stretch_width'),
+                            pn.Column(
+                                renewable_energy_selector,
+                                plot_renewable_energy.panel(),
+                                sizing_mode='stretch_width'
+                            ),
+                            pn.pane.Markdown("Datenquelle: [Our World in Data - CO₂ Emissions](https://ourworldindata.org/co2-emissions)"),
+                            pn.pane.Markdown(text_erneuerbare_energien_1, sizing_mode='stretch_width'),
+                            margin=(10, 0),
+                            sizing_mode='stretch_width'
+                        ),
+                        title = "Vergleich Energieproduktion",
+                        margin = (5,25),
+                        sizing_mode = 'stretch_width',
+                        collapsed = True
+                    ),
+                    
+                    
+    # ------------- Entwicklung im Zeitverlauf -------------
+                    pn.Card(
+
+    # ---------------- DEUTSCHLAND ----------------
+
+                        pn.Row(
+                            pn.Card(
+                                text_solar_deutschland,
+                                title = "Solarenergie in Deutschland",
+                                margin = (5,25),
+                                sizing_mode = 'stretch_width',
+                                collapsed = True
+                            ),
+                            sizing_mode = 'stretch_width'
+                        ),
+                        pn.Row(
+                            pn.Card(
+                                text_wind_deutschland,
+                                title = "Windenergie in Deutschland",
+                                margin = (5,25),
+                                sizing_mode = 'stretch_width',
+                                collapsed = True
+                            ),
+                            sizing_mode = 'stretch_width'
+                        ),
+                        pn.Row(
+                            pn.Card(
+                                text_wasser_deutschland,
+                                title = "Wasserkraft in Deutschland",
+                                margin = (5,25),
+                                sizing_mode = 'stretch_width',
+                                collapsed = True
+                            ),
+                            sizing_mode = 'stretch_width'              
+                        ),
+
+    # ---------------- GROSSBRITANNIEN ----------------
+
+                        pn.Row(
+                            pn.Card(
+                                text_solar_grossbritannien_1,text_solar_grossbritannien_2, text_solar_grossbritannien_3,
+                                pn.pane.Markdown("""Textquellen:
+                                [About the FIT scheme](https://www.ofgem.gov.uk/environmental-and-social-schemes/feed-tariffs-fit#:~:text=The%20FIT%20scheme%20was%20launched,Capacity%20and%20Functions),
+                                [Scheme Closure](https://www.ofgem.gov.uk/environmental-and-social-schemes/feed-tariffs-fit/scheme-closure),
+                                [Contracts for Difference (CfD)](https://www.lowcarboncontracts.uk/contracts-for-difference),
+                                [About the Smart Export Guarantee (SEG)](https://www.ofgem.gov.uk/environmental-and-social-schemes/smart-export-guarantee-seg#:~:text=About%20the%20Smart%20Export%20Guarantee%20(SEG)&text=The%20SEG%20requires%20some%20electricity,providing%20certain%20criteria%20are%20met.)
+                                """                 
+                                ),
+                                title = "Solarenergie in Grossbritannien",
+                                margin = (5,25),
+                                sizing_mode = 'stretch_width',
+                                collapsed = True
+                            ),
+                            sizing_mode = 'stretch_width'
+                        ),
+                        pn.Row(
+                            pn.Card(
+                                text_wind_grossbritannien_1, text_wind_grossbritannien_2,
+                                pn.pane.Markdown("""Textquellen:
+                                [Grossbritannien gibt Ziele für Offshore Windenergie 2030 bekannt](https://www.iwr.de/news/grossbritannien-gibt-ziele-fuer-offshore-windenergie-2030-bekannt-news35869),
+                                [Can the UK achieve its 50 GW offshore wind target by 2030?](https://www.dnv.com/article/can-the-uk-achieve-its-50-gw-offshore-wind-target-by-2030--224379)
+                                """                 
+                                ),
+                                title = "Windenergie in Grossbritannien",
+                                margin = (5,25),
+                                sizing_mode = 'stretch_width',
+                                collapsed = True
+                            ),
+                            sizing_mode = 'stretch_width'
+                        ),
+                        pn.Row(
+                            pn.Card(
+                                text_wasser_grossbritannien_1,
+                                pn.pane.Markdown("""Textquellen:
+                                [Renewables Obligation (RO) - iea](https://www.iea.org/policies/4182-renewables-obligation-ro),
+                                [Renewables Obligation (RO) - ofgem](https://www.ofgem.gov.uk/environmental-and-social-schemes/renewables-obligation-ro)
+                                """                 
+                                ),
+                                title = "Wasserkraft in Grossbritannien",
+                                margin = (5,25),
+                                sizing_mode = 'stretch_width',
+                                collapsed = True
+                            ),
+                            sizing_mode = 'stretch_width'     
+                        ),
+
+    # ---------------- SCHWEIZ ----------------
+
+                        pn.Row(
+                            pn.Card(
+                                text_solar_schweiz_1,
+                                text_solar_schweiz_2,
+                                text_solar_schweiz_3,
+                                pn.Column(
+                                    pn.pane.Markdown("### Weitere Daten zur Solarenergie in der Schweiz"),
+                                    pn.Row(
+                                        pn.pane.PNG('schweiz_sonnenschein.png', sizing_mode = 'scale_width'),
+                                        pn.pane.PNG('schweiz_ausbau_solaranlagen.png', sizing_mode = 'scale_width'),
+                                    ),
+                                    pn.Row(
+                                        pn.pane.Markdown("Quelle: MeteoSchweiz - Klimanormwerte Sonnenscheindauer 1981-2010", sizing_mode = 'stretch_width'),
+                                        pn.pane.Markdown("Quelle: Bundesamt für Energie - Ausbau der Solaranlagen 2023", sizing_mode = 'stretch_width'),
+                                    ),
+                                    pn.Row(
+                                        pn.pane.Markdown(text_solar_schweiz_4, sizing_mode = 'stretch_width'),
+                                        pn.pane.Markdown(text_solar_schweiz_5, sizing_mode = 'stretch_width'),
+                                    ),
+                                    sizing_mode = 'stretch_width'
+                                ),
+                                text_solar_schweiz_6,
+                                pn.pane.Markdown("""Textquellen:
+                                [UVEK - Elektrizitätsproduktionsanlagen in der Schweiz](https://www.uvek-gis.admin.ch/BFE/storymaps/EE_Elektrizitaetsproduktionsanlagen/),
+                                [SRF - Solaranlagen in den Bergen: Schweizer Berghilfe lanciert Solarprogramm für Kleinunternehmen](https://www.srf.ch/news/schweiz/solaranlagen-in-den-bergen-schweizer-berghilfe-lanciert-solarprogramm-fuer-kleinunternehmen),
+                                [SRF - Energiewende in den Alpen: Jetzt beginnt das Wettrennen um die Solar-Bundessubventionen](https://www.srf.ch/news/schweiz/energiewende-in-den-alpen-jetzt-beginnt-das-wettrennen-um-die-solar-bundessubventionen)
+                                """
+                                ),
+                                title = "Solarenergie in der Schweiz",
+                                margin = (5,25),
+                                sizing_mode = 'stretch_width',
+                                collapsed = True
+                            ),
+                            sizing_mode = 'stretch_width'
+                        ),
+                        pn.Row(
+                            pn.Card(
+                                text_wind_schweiz_1,
+                                text_wind_schweiz_2,
+                                pn.Column(
+                                    pn.pane.Markdown("### Weitere Daten zur Windenergie in der Schweiz"),
+                                    pn.Row(
+                                        pn.pane.PNG('schweiz_windgeschwindigkeit.png', sizing_mode = 'scale_width'),
+                                        pn.pane.PNG('schweiz_wind_zonen.png', sizing_mode = 'scale_width'),
+                                        pn.pane.PNG('schweiz_europa_wind.png', sizing_mode = 'scale_width'),
+                                    ),
+                                    pn.Row(
+                                        pn.pane.Markdown("Quelle: OpenData Swiss - Windatlas Schweiz", sizing_mode = 'stretch_width'),
+                                        pn.pane.Markdown("Quelle: OpenData Swiss - Windatlas Schweiz", sizing_mode = 'stretch_width'),
+                                        pn.pane.Markdown("Quelle: Universität Oldenburg - Ein Windatlas für Europa", sizing_mode = 'stretch_width'),
+                                    ),
+                                    sizing_mode = 'stretch_width'
+                                ),
+                                text_wind_schweiz_3,
+                                pn.pane.Markdown("""Textquellen:    
+                                [Der Bundesrat - Beschleunigung Bewilligungsverfahren](https://www.admin.ch/gov/de/start/dokumentation/medienmitteilungen.msg-id-87045.html),
+                                [Suisse EOLE - Kostenvergleiche](https://suisse-eole.ch/de/news/irena-wind-und-solarstrom-schlagen-im-kostenvergleich-selbst-guenstigste-kohlekonkurrenten/),
+                                [Suisse EOLE - Windenergie](https://suisse-eole.ch/de/windenergie/windparks/),
+                                [Suisse EOLE - Factsheet](https://suisse-eole.ch/wp-content/uploads/2023/04/20_SE_02_FACTSHEET_Anpassung_D_V3_230404.pdf)
+                                """
+                                ),
+                                title = "Windenergie in der Schweiz",
+                                margin = (5,25),
+                                sizing_mode = 'stretch_width',
+                                collapsed = True
+                            ),
+                            sizing_mode = 'stretch_width'
+                        ),
+                        pn.Row(
+                            pn.Card(
+                                text_wasser_schweiz_1,
+                                text_wasser_schweiz_2,
+                                pn.pane.Markdown("Textquellen: [BFE - Erneuerbare Energien Wasserkraft](https://www.bfe.admin.ch/bfe/de/home/versorgung/erneuerbare-energien/wasserkraft.html)"),
+                                title = "Wasserkraft in der Schweiz",
+                                margin = (5,25),
+                                sizing_mode = 'stretch_width',
+                                collapsed = True
+                            ),
+                            sizing_mode = 'stretch_width'            
+                        ),
+
+    # ---------------- SPANIEN ----------------
+                        pn.Row(
+                            pn.Card(
+                                text_solar_spanien_1,
+                                text_solar_spanien_2,
+                                text_solar_spanien_3,
+                                text_solar_spanien_4,
+                                pn.pane.Markdown("""Textquellen:  
+                                [FAZ - Spanien Abschied von der Solar-Weltmacht](https://www.faz.net/aktuell/wirtschaft/wirtschaftspolitik/spanien-abschied-von-der-solar-weltmacht-1227724.html),
+                                [TAZ - Erneuerbare Energien in Südspanien](https://taz.de/Erneuerbare-Energien-in-Suedspanien/!5830308/),
+                                [Energiezukunft - Abschaffung der Sonnensteuer](https://www.energiezukunft.eu/politik/spanien-beschliesst-abschaffung-der-sonnensteuer/),
+                                [Idealista - Boom von Solarstrom in Spanien](https://www.idealista.com/de/news/leben-in-spanien/2020/09/23/7761-ein-neues-gesetz-zum-eigenverbrauch-laesst-den-solarstrom-in-spanien-wieder-boomen),
+                                [German Energy Solutions - Spanien Marktanalyse](https://www.german-energy-solutions.de/GES/Redaktion/DE/Publikationen/Marktanalysen/2021/zma-spanien-2021-h2.pdf?__blob=publicationFile&v=4),
+                                [Mariscal Abogados - Einspeisevergütungen Spanien](https://www.mariscal-abogados.de/die-abschaffung-des-einspeiseverguetung-system-in-spanien/)  
+                                """
+                                ),
+                                title = "Solarenergie in Spanien",
+                                margin = (5,25),
+                                sizing_mode = 'stretch_width',
+                                collapsed = True
+                            ),
+                            sizing_mode = 'stretch_width'
+                        ),
+                        pn.Row(
+                            pn.Card(
+                                text_wind_spanien_1,
+                                text_wind_spanien_2,
+                                pn.pane.Markdown("""Textquellen:  
+                                [Roedl - Erneuerbare Energien Neue Abgaben](https://www.roedl.de/themen/erneuerbare-energien/neue-abgaben-f%C3%BCr-die-stromerzeuger-in-spanien),
+                                [German Energy Solutions - Ausschreibungen in Spanien](https://www.german-energy-solutions.de/GES/Redaktion/DE/Standardartikel/Marktinformationen/Ausschreibungen/2022/20220810-spanien.html),
+                                [Climate EC Europa - Climate Energy Framework](https://climate.ec.europa.eu/eu-action/climate-strategies-targets/2030-climate-energy-framework_de)
+                                """
+                                ),
+                                title = "Windenergie in Spanien",
+                                margin = (5,25),
+                                sizing_mode = 'stretch_width',
+                                collapsed = True
+                            ),
+                            sizing_mode = 'stretch_width'
+                        ),
+                        pn.Row(
+                            pn.Card(
+                                text_wasser_spanien_1,
+                                text_wasser_spanien_2,
+                                pn.pane.Markdown("""Textquellen:  
+                                [Costa Nachrichten - Energiewende](https://www.costanachrichten.com/spanien/politik-wirtschaft/spanien-erneuerbare-energien-energiewende-2022-gas-solarenergie-windkraft-biomasse-strompreis-91737644.html)
+                                """
+                                ),
+                                title = "Wasserkraft in Spanien",
+                                margin = (5,25),
+                                sizing_mode = 'stretch_width',
+                                collapsed = True
+                            ),
+                            sizing_mode = 'stretch_width'              
+                        ),
+                        pn.Spacer(height=30),
+                        title = "Ereignisse in der Energieproduktion",
+                        margin = (5,25),
+                        sizing_mode = 'stretch_width',
+                        collapsed = True
+                    ),
+                    pn.Spacer(height=30),
+                    sizing_mode = 'stretch_width'
+                ),
+                sizing_mode = 'stretch_width'
+            ),
+        ],
+        accent_base_color = '#2E8B57',
+        header_background = '#2E8B57',
+    )
+
+    #template.show()
+    pn.serve(template)
+
+# call the function
+if __name__ == "__main__":
+    main()
