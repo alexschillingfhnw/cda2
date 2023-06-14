@@ -243,7 +243,6 @@ with st.expander("## Ereignisse in der Energieproduktion"):
             - Einspeisevergütung war höher als der Marktpreis für Strom
             - Betrieb von Solaranlagen wurde dadurch wirtschaftlich rentabel
             """)
-            # bild 
 
             st.write("#### 2. Was sind die Gründe dafür, dass Deutschland im Vergleich zu anderen Ländern eine deutlich höhere Solarenergieproduktion aufweist?")
             st.write("""
@@ -252,15 +251,27 @@ with st.expander("## Ereignisse in der Energieproduktion"):
             - Hoher Akzeptanz und Nachfrage nach Solarenergie in der Bevölkerung
             - Frühe Adaption
             """)
-            # bild
+
+            st.divider()
+
+            st.write("##### Weitere Daten zur Solarenergie in Deutschland")
+
+            st.image(Image.open("images/deutschland_solar.png"), caption = "Entwicklung der Zahlen")
+            st.write("Quelle: [Bundesnetzagentur](https://www.bundesnetzagentur.de/DE/Fachthemen/ElektrizitaetundGas/ErneuerbareEnergien/ZahlenDatenInformationen/start.html)")
+
+            st.image(Image.open("images/deutschland_solar_2.png"), caption = "Anzahl Anlagen für Solarenergie")
+            st.write("Quelle: [Bundesnetzagentur](https://www.bundesnetzagentur.de/DE/Fachthemen/ElektrizitaetundGas/ErneuerbareEnergien/ZahlenDatenInformationen/start.html)")
+
+            st.image(Image.open("images/deutschland_solar_3.png"), caption = "Arbeitsplätze in der Solarbranche")
+            st.write("Quelle: [Bundesnetzagentur](https://strom-report.com/photovoltaik/)")
             
             st.divider()
 
             st.write("##### Textquellen:")
             st.write("""
-            - [EEG förderte Investitionen in erneuerbare Energien](https://www.bundesnetzagentur.de/DE/Fachthemen/ElektrizitaetundGas/ErneuerbareEnergien/ZahlenDatenInformationen/start.html)
-            - [Attraktive Einspeisevergütungen für Solarstrom seit 2000 → Ansturm auf die Installation von Solarpanels](https://www.bundesnetzagentur.de/DE/Fachthemen/ElektrizitaetundGas/ErneuerbareEnergien/ZahlenDatenInformationen/start.html)
-            - [Hoher Akzeptanz und Nachfrage nach Solarenergie in der Bevölkerung](https://strom-report.com/photovoltaik/)
+            - [Bundesnetzagentur - EEG in Zahlen](https://www.bundesnetzagentur.de/DE/Fachthemen/ElektrizitaetundGas/ErneuerbareEnergien/ZahlenDatenInformationen/start.html)
+            - [Bundesnetzagentur - Erneuerbare Energien](https://www.bundesnetzagentur.de/DE/Fachthemen/ElektrizitaetundGas/ErneuerbareEnergien/ZahlenDatenInformationen/start.html)
+            - [STROM REPORT - Hoher Akzeptanz und Nachfrage nach Solarenergie](https://strom-report.com/photovoltaik/)
             - [Erneuerbare Energien - Redaktion Dossier](https://www.erneuerbare-energien.de/EE/Redaktion/DE/Dossier/eeg.html)
             """)
 
@@ -271,6 +282,24 @@ with st.expander("## Ereignisse in der Energieproduktion"):
             - Ein neues System von Ausschreibungen für Windenergie an Land wurde eingeführt, um die Kosten für den Ausbau der Windenergie zu senken.
             - Anstatt einer garantierten Einspeisevergütung wurde ein wettbewerbliches Vergütungssystem eingeführt, bei dem Windkraftanlagenbetreiber um den Zuschlag für den Bau neuer Anlagen konkurrieren.
             """)
+
+            st.divider()
+
+            st.write("##### Weitere Daten zur Windenergie in Deutschland")
+
+            col8, col9 = st.columns(2)
+
+
+            with col8:
+                st.image(Image.open("images/deutschland_wind_an_land_zuwachs.png"), caption = "Wind an Land Zuwachs Deutschland")
+                st.write("Quelle: [Bundesnetzagentur - Statistiken erneuerbarer Energieträger](https://www.bundesnetzagentur.de/SharedDocs/Downloads/DE/Sachgebiete/Energie/Unternehmen_Institutionen/ErneuerbareEnergien/ZahlenDatenInformationen/EEStatistikMaStRBNetzA.pdf?__blob=publicationFile&v=16)")
+
+            with col9:
+                st.image(Image.open("images/deutschland_wind_auf_see_zuwachs.png"), caption = "Wind auf See Zuwachs Deutschland")
+                st.write("Quelle: [Bundesnetzagentur - Statistiken erneuerbarer Energieträger](https://www.bundesnetzagentur.de/SharedDocs/Downloads/DE/Sachgebiete/Energie/Unternehmen_Institutionen/ErneuerbareEnergien/ZahlenDatenInformationen/EEStatistikMaStRBNetzA.pdf?__blob=publicationFile&v=16)")
+
+            st.write("##### Ausbau von Windleistungen")
+            st.write("Wir sehen, dass Deutschland in den letzten Jahren erhebliche Fortschritte beim Ausbau der Windenergie auf Land und See gemacht hat. Diese Fortschritte zeigen sich in der Zunahme der installierten Kapazität von Windenergieanlagen. Doch Deutschland hat noch grössere Ziele für die Zukunft: Bis zum Jahr 2030 soll die installierte Kapazität von Windenergieanlagen an Land auf 115’000MW und auf See auf 30’000MW erhöht werden, um eine noch grössere Menge an erneuerbarem Strom zu erzeugen und so den Klimawandel zu bekämpfen.")
 
             st.divider()
 
@@ -463,7 +492,7 @@ Gemäss dem schweizerischen Energiegesetz, Artikel 71.a, Absatz 4, erhalten Anla
             st.write("##### Textquellen:")
             st.write("""
             - [UVEK - Elektrizitätsproduktionsanlagen in der Schweiz](https://www.uvek-gis.admin.ch/BFE/storymaps/EE_Elektrizitaetsproduktionsanlagen/)
-            - [SRF - Solaranlagen in den Bergen: Schweizer Berghilfe lanciert Solarprogramm für Kleinunternehmen,](https://www.srf.ch/news/schweiz/solaranlagen-in-den-bergen-schweizer-berghilfe-lanciert-solarprogramm-fuer-kleinunternehmen)
+            - [SRF - Solaranlagen in den Bergen: Schweizer Berghilfe lanciert Solarprogramm für Kleinunternehmen](https://www.srf.ch/news/schweiz/solaranlagen-in-den-bergen-schweizer-berghilfe-lanciert-solarprogramm-fuer-kleinunternehmen)
             - [SRF - Energiewende in den Alpen: Jetzt beginnt das Wettrennen um die Solar-Bundessubventionen](https://www.srf.ch/news/schweiz/energiewende-in-den-alpen-jetzt-beginnt-das-wettrennen-um-die-solar-bundessubventionen)
             )
             """)
@@ -480,13 +509,181 @@ Gemäss dem schweizerischen Energiegesetz, Artikel 71.a, Absatz 4, erhalten Anla
             - Windgeschwindigkeiten in der Schweiz sind im Vergleich zu Deutschland und England niedriger, ausgenommen auf den Bergspitzen der Alpen. (siehe Visualisierungen unten)
             """)
 
-            st.write("#### 2. Warum hat die Schweiz im Vergleich zu anderen Länder relativ wenig Solarenergie?")
+            st.write("#### 2. Wird es geplant, weitere Windparks oder Einzelanlagen zu installieren?")
+            st.write("Ja, es ist 1 Windpark in Bau, 18 Projekte in Bewilligungsverfahren und 35 in Planung. Ein Beispiel ist das Projekt in Mollendruz im Kanton Waadt, das 12 Windkraftanlagen mit einer installierten Leistung von bis zu 50.4 MW umfassen wird (Das Projekt befindet sich momentan bei der Vorbereitung des Baugesuchs)")
+
+            st.divider()
+
+
+            st.write("##### Weitere Daten zur Windenergie in der Schweiz")
+
+            col5, col6, col7 = st.columns(3)
+
+            with col5:
+                st.image(Image.open("images/schweiz_windgeschwindigkeit.png"), caption = "Windgeschwindigkeit in der Schweiz")
+                st.write("Quelle: [OpenData Swiss - Windatlas Schweiz](https://map.geo.admin.ch/?layers=ch.bfe.windenergie-geschwindigkeit_h50)")
+            
+            with col6:
+                st.image(Image.open("images/schweiz_wind_zonen.png"), caption = "Wind: Bundesinteresse")
+                st.write("Quelle: [OpenData Swiss - Windatlas Schweiz](https://map.geo.admin.ch/?lang=de&topic=ech&bgLayer=ch.swisstopo.pixelkarte-farbe)")
+            
+            with col7:
+                st.image(Image.open("images/schweiz_europa_wind.png"), caption = "Windatlas für Europa")
+                st.write("Quelle: [Universität Oldenburg - Ein Windatlas für Europa](https://uol.de/aktuelles/artikel/ein-windatlas-fuer-europa-3435)")
+
+            st.write("Im linken Bild sind die Windgeschwindigkeiten in einer Höhe von 50 Metern zu sehen. Es zeigt sich, dass die Windgeschwindigkeiten auf den Berggipfeln am höchsten sind, gefolgt von den Seeregionen des Genfersees, Neuenburgersees, Zürichsees, Bodensees sowie dem St. Galler Rheintal, dem Jura-Gebiet und dem Luzerner Hinterland bis zum Zürcher Oberland.")
+            st.write("Die mittlere Grafik zeigt die Interessen des Bundes und stellt potenzielle Standorte für den Bau von Windkraftanlagen dar. Dabei ist zu beachten, dass die dargestellten Daten nicht zu 100 Prozent genau sind und weitere detaillierte Untersuchungen erforderlich sind. Dennoch liefert die Grafik eine bessere Orientierung, wo der Ausbau von Windkraftanlagen möglich sein könnte. Basierend auf den beiden Grafiken scheinen potenzielle Standorte auf den kleineren Bergen zwischen Aargau und Zürich, in Teilen des Jura-Gebirges, im St. Galler Rheintal und im Gebiet zwischen dem Neuenburgersee und dem Genfersee geeignet zu sein.")
+            st.write("Im rechten Bild werden die Windgeschwindigkeiten auf einer Höhe von 100 Metern für ganz Europa dargestellt. Hier ist erkennbar, dass die Schweiz im Vergleich zu den nordischen Ländern niedrigere Windgeschwindigkeiten aufweist.")
+
+            st.divider()
+
+            st.write("##### Textquellen:")
             st.write("""
-            - Bergige Regionen erschweren den Einsatz von Solaranlagen.
-                - Wenig Infrastruktur, Stromleitungen, höhere Kosten
-            - Landschaftsschutz
-            - Bürokratie und lange Genehmigungsverfahren verlangsamen den Ausbau.
+            - [Der Bundesrat - Beschleunigung Bewilligungsverfahren](https://www.uvek-gis.admin.ch/BFE/storymaps/EE_Elektrizitaetsproduktionsanlagen/)
+            - [Suisse EOLE - Kostenvergleiche](https://suisse-eole.ch/de/news/irena-wind-und-solarstrom-schlagen-im-kostenvergleich-selbst-guenstigste-kohlekonkurrenten/)
+            - [Suisse EOLE - Windenergie](https://suisse-eole.ch/de/windenergie/windparks/)
+            - [Suisse EOLE - Factsheet](https://suisse-eole.ch/wp-content/uploads/2023/04/20_SE_02_FACTSHEET_Anpassung_D_V3_230404.pdf)
             """)
+
+        if energy_selector_2 == "Wasser":
+
+            st.write("#### 1. Warum setzt die Schweiz so viel auf die Wasserkraftwerke?")
+            st.write("""
+            - Die Schweiz setzt auf Wasserkraftwerke als zuverlässige und erneuerbare Energiequelle.
+            - Die zahlreichen Seen und Flüsse in der Schweiz begünstigen den Bau von Wasserkraftanlagen.
+            - Wasserkraft ist eine bewährte Technologie, die der Schweiz ermöglicht, ihre Energiesicherheit zu gewährleisten und Emissionen zu reduzieren.
+            """)
+
+            st.write("#### 2. Wie können sie die Produktion so konstant hoch behalten?")
+            st.write("""
+            - Durch Energiespeicher und Wasserkraftpumpen kann die Produktion von Wasserkraftwerken in der Schweiz konstant gehalten werden.
+            - Überschüssige Energie kann gespeichert und in Zeiten höheren Verbrauchs genutzt werden.
+            - Wasserkraftpumpen können genutzt werden, um Wasser in höher gelegene Stauseen zu pumpen und so mehr potentielle Energie zu erzeugen.
+            """)
+
+            st.divider()
+
+            st.write("##### Textquellen:")
+            st.write("""
+            - [BFE - Erneuerbare Energien Wasserkraft](https://www.bfe.admin.ch/bfe/de/home/versorgung/erneuerbare-energien/wasserkraft.html)
+            """)         
+
+    elif country_selector == "Spanien":
+            
+        if energy_selector_2 == "Solar":
+
+            st.write("#### 1. Warum hat Spanien erst spät mit der Produktion von Solarenergie begonnen?")
+            st.write("""
+            - Fossile Brennstoffe: Spanien hat traditionell einen Grossteil seiner Energie aus fossilen Brennstoffen bezogen, insbesondere aus Kohle und Erdgas. Der Übergang zu erneuerbaren Energien ist ein komplexer Prozess, der Zeit, Investitionen und politischen Willen erfordert.
+            - Keine Interesse, da die Konzentration auf die Erschliessung von Erdöl- und Erdgasreserven gelegt wurde.
+            - Keine klare Strategie für den Ausbau erneuerbarer Energien.
+            """)
+
+            st.write("#### 2. Warum flachte die Produktion von Solarenergie nach 2009 ab?")
+            st.write("""
+            - Da Spanien sich noch immer in einer Wirtschaftskrise befand, waren sie gezwungen, Korrekturen vorzunehmen und Subventionen zu kürzen.
+            - Rückwirkende Änderung auf die Vergütungsbedingungen
+                - Ein Gesetz, welche den Herstellern von Solaranlagen auf ein Vierteljahrhundert hinaus einen Strompreis von 45 Cent pro Kilowatt garantierte wurde abgeschafft. Das war das Zehnfache des durchschnittlichen Marktpreises.
+            - Fast keine Investitionen mehr
+            - Ausbaustopp: Die Solarinvestitionen, die bis Ende des Jahres 2007 auf geschätzte mehr als 15 Milliarden Euro angeschwollen waren, kamen zwei Jahre später so gut wie zum Stillstand.
+            """)
+
+            st.write("#### 3. Was ist in 2015 passiert?")
+            st.write("""
+            - Die spanische Regierung führte eine "Sonnensteuer" ein, die Besitzer von Solaranlagen dazu verpflichtete, eine Gebühr für die Erzeugung von Strom zu zahlen, den sie selbst verbrauchten.
+            - Diese Politik wurde stark kritisiert und behinderte das Wachstum der Solarenergie
+            """)
+
+            st.write("#### 4. Warum gab es ab 2019 einen so starken Anstieg?")
+            st.write("""
+            - Abschaffung der “Sonnensteuer”
+            - Königliche Dekret 244/2019
+                - Liberalisierung des spanischen Strommarktes → mehr Akteure können sich am Markt beteiligen (siehe Quelle Seite 20)
+            - Sinkende Kosten für Solartechnologien und Strompreise
+                - Wachsende Nachfrage nach erneuerbaren Energien
+            """)
+
+            st.divider()
+
+            st.write("##### Textquellen:")
+            st.write("""
+            - [FAZ - Spanien Abschied von der Solar-Weltmacht](https://www.faz.net/aktuell/wirtschaft/wirtschaftspolitik/spanien-abschied-von-der-solar-weltmacht-1227724.html)
+            - [TAZ - Erneuerbare Energien in Südspanien](https://taz.de/Erneuerbare-Energien-in-Suedspanien/!5830308/)
+            - [Energiezukunft - Abschaffung der Sonnensteuer](https://www.energiezukunft.eu/politik/spanien-beschliesst-abschaffung-der-sonnensteuer/)
+            - [Idealista - Boom von Solarstrom in Spanien](https://www.idealista.com/de/news/leben-in-spanien/2020/09/23/7761-ein-neues-gesetz-zum-eigenverbrauch-laesst-den-solarstrom-in-spanien-wieder-boomen)
+            - [German Energy Solutions - Spanien Marktanalyse](https://www.german-energy-solutions.de/GES/Redaktion/DE/Publikationen/Marktanalysen/2021/zma-spanien-2021-h2.pdf?__blob=publicationFile&v=4)
+            - [Mariscal Abogados - Einspeisevergütungen Spanien](https://www.mariscal-abogados.de/die-abschaffung-des-einspeiseverguetung-system-in-spanien/)
+            """)    
+
+        if energy_selector_2 == "Wind":
+
+            st.write("#### 1. Warum sank die Produktion von Wind von 2013 bis 2016?")
+            st.write("""
+            - Einführung neuer Abgaben
+            - Einschränkung des Ausbaus erneuerbarer Energien
+            - Erhöhung des Strompreises
+            """)
+
+            st.write("#### 2. Warum ist sie 2016 wieder gestiegen? Was waren die Auslöser?")
+            st.write("""
+            - Veränderte politische Landschaft
+            - Internationale Verpflichtungen: Druck von EU
+            - Sinkende Kosten für die Technologie
+            - Ausschreibungen: Förderte den Wettbewerb und trieb die Kosten weiter nach unten, was den Ausbau von Windkraftanlagen begünstigte
+            """)
+
+            st.divider()
+
+            st.write("##### Textquellen:")
+            st.write("""
+            - [Roedl - Erneuerbare Energien Neue Abgaben](https://www.roedl.de/themen/erneuerbare-energien/neue-abgaben-f%C3%BCr-die-stromerzeuger-in-spanien)
+            - [German Energy Solutions - Ausschreibungen in Spanien](https://www.german-energy-solutions.de/GES/Redaktion/DE/Standardartikel/Marktinformationen/Ausschreibungen/2022/20220810-spanien.html)
+            - [German Energy Solutions - Ausschreibungen in Spanien](https://climate.ec.europa.eu/eu-action/climate-strategies-targets/2030-climate-energy-framework_de)
+            """)   
+
+        if energy_selector_2 == "Wasser":
+
+            st.write("#### 1. Warum schwankt die Energieproduktion bei Wasserkraftwerke so stark?")
+            st.write("""
+            - Die Produktion von Wasserkraft schwankt aufgrund von Schwankungen in der Verfügbarkeit und dem Volumen des Wassers, das zur Stromerzeugung genutzt wird.
+            - In regenreichen Jahren kann die Jahreserzeugung 40 Mrd. kWh überschreiten, während sie in trockenen Jahren weniger als 25 Mrd. kWh beträgt.
+            """)
+
+            st.write("#### 2. Warum ist sie 2016 wieder gestiegen? Was waren die Auslöser?")
+            st.write("""
+            - In Spanien hat die Rolle der Wasserkraft in den letzten Jahren abgenommen.
+            - Das Wetter spielt wahrscheinlich eine grosse Rolle: Da es immer wärmer und trockener wird, gibt es weniger Wasser für die Energieproduktion.
+            - In Zeiten der Dürre, trinken die Wasserkraftwerke das Wasser von der Landwirtschaft weg.
+            - Spanien investiert deshalb eher in andere erneuerbare Energiequellen wie Solar- und Windenergie.
+            """)
+
+            st.divider()
+
+            st.write("##### Textquellen:")
+            st.write("""
+            - [Costa Nachrichten - Energiewende](https://www.costanachrichten.com/spanien/politik-wirtschaft/spanien-erneuerbare-energien-energiewende-2022-gas-solarenergie-windkraft-biomasse-strompreis-91737644.html)
+            """)   
+
+
+# -------------- 5. POLICY ADVICES ---------------
+
+st.write("### 5. Policy Advices")
+
+with st.expander("## Policy Advices"):
+    st.write("Hier werden aus den wichtigsten Erkenntnisse aus den vorherigen Abschnitten Handlungsempfehlungen abgeleitet. Diese Empfehlungen sollen den Entscheidungsträgern in der Politik helfen, die richtigen Massnahmen zu ergreifen, um die Energiewende voranzutreiben.")
+
+    st.write("#### Hypothese 1")
+    st.write("Die übermässigen Einspeisevergütungen in Spanien führten zu erheblichen finanziellen Belastungen, mit Staatsschulden in Höhe von über 9 Milliarden Euro, hauptsächlich aufgrund der Diskrepanz zwischen der Einspeisevergütung und den Strompreisobergrenzen. Dies hat dazu geführt, dass seit 2016 Betreiber von Photovoltaikanlagen Abgaben auf installierte Leistung und erzeugte Energiemenge zahlen müssen und kleinere Anlagen (<100 kW) keine Vergütung für eingespeisten Überschussstrom erhalten. Diese Erfahrung dient als Warnung für andere Länder, wie Deutschland und Grossbritannien, bei der Gestaltung ihrer Einspeisevergütungen. Eine effektive Massnahme könnte darin bestehen, regelmässige Überprüfungen und Anpassungen der Einspeisevergütungen durchzuführen, um sicherzustellen, dass sie den Marktbedingungen entsprechen und nicht zu übermässigen Kosten führen. (siehe Plot bei 3. Vergleich Energieproduktion, Produktion der Solarenergie in Spanien flacht nach dem Jahr 2015, weil da die Sonnensteuer eingeführt wurde)")
+
+    st.write("#### Hypothese 2")
+    st.write("Die Implementierung eines Systems wie SEG in Grossbritannien könnte in der Schweiz und in Deutschland den Anreiz (z.B. Hausbesitzer kann Ausgaben bezüglich erneuerbaren Enerigen in den nächsten 10 Jahren bei den Steuern abziehen) für Hausbesitzer und kleine Unternehmen erhöhen, in erneuerbare Energiesysteme zu investieren. Dadurch könnte der Anteil der erneuerbaren Energien insgesamt gesteigert werden.")
+    
+    st.write("#### Hypothese 3")
+    st.write("Da die Schweiz noch nicht viel Solarenergie erzeugt hat und ein Platzmangel herrscht, wäre eine vielversprechende Möglichkeit, Solaranlagen auf bereits vorhandener Infrastruktur wie z.B. Parkplätze, auf dem Wasser von Stauseen, Fassaden, Strommasten, Bahnstationen, usw. (siehe Plot bei 3. Vergleich Energieproduktion, Produktion der Solarenergie in Deutschland ist vorbildlich)")
+    
+    st.write("#### Hypothese 4")
+    st.write("In der EU gibt es einen Mangel an globalen Massnahmen. Indem Unternehmen wie Repsol freiwillige Massnahmen ergreifen, können sie nicht nur ihren eigenen ökologischen Fussabdruck reduzieren, sondern auch andere Unternehmen zur Nachahmung ermutigen. Diese Vorreiterrolle und der positive Einfluss können einen Dominoeffekt auslösen, bei dem immer mehr Unternehmen ihre eigenen Massnahmen zur Klimaneutralität entwickeln und umsetzen. Dieser kaskadierende Effekt könnte den Übergang zu einer kohlenstoffarmen Wirtschaft beschleunigen und dazu beitragen, den globalen Klimawandel effektiv anzugehen.")
+    
 
 # --------- TEST -----------
 
