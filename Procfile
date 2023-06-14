@@ -1,1 +1,1 @@
-web: panel serve --port=$PORT --address=0.0.0.0 dashboard.py
+web: sh setup.sh && streamlit run app.py
