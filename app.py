@@ -15,7 +15,7 @@ def create_chart():
     # create and add data to Chart
  
     data = Data()
-    data_frame = pd.read_csv("../Data/titanic.csv")
+    data_frame = pd.read_csv("/Data/titanic.csv")
 
     data.add_data_frame(data_frame)
  
