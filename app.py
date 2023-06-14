@@ -8,6 +8,25 @@ from ipyvizzu import Chart, Data, Config, Style, DisplayTarget
 # set page config
 #st.set_page_config(layout='wide')
 
+# "with" notation
+with st.sidebar:
+    st.title("Allgemeine Informationen")
+    st.write("In diesem Dashboard befinden sich Daten bezüglich der Solar-, Wind- und Wasserenergie aus den Jahren 1990 - 2021. Nebenbei werden noch Daten der CO₂ Emissionen vorgestellt. Eingeschränkt wurde das Ganze auf die Länder: Deutschland, Spanien, Schweiz und Grossbritannien")
+    
+    st.title("Einstellungen")
+    st.write("Mithilfe von Slidern und Multiselektoren ist es möglich, die einzelnen Plots auf ein bestimmtes Jahr und ein bestimmtes Land zu beschränken.")
+
+    # Slider
+    years = st.slider("Jahren", 1990, 2021, (1990, 2021))
+
+    # multiselect for countries
+    country_options = st.multiselect(
+        "Länder",
+        ["Germany", "United Kingdom", "Switzerland", "Spain"],
+        ["Germany", "United Kingdom", "Switzerland", "Spain"],
+    )    
+    print(country_options)
+
 
 st.write("# Policy Advices zur Erzeugung von Energie ohne Treibhausgasausstoss")
 st.write("## Willkommen!")
@@ -42,6 +61,12 @@ with st.expander("# CO₂ Emissionen"):
     # import co2 emissions per capita data
     df_em_cap = pd.read_csv("Data/emissions_per_capita.csv")
 
+    # df_em_cap should only have data for the selected years
+    df_em_cap = df_em_cap[df_em_cap["Jahr"].isin(range(years[0], years[1] + 1))]
+
+    # df_em_cap should only have data for the selected countries
+    df_em_cap = df_em_cap[df_em_cap["Land"].isin(country_options)]
+
     # create co2 emissions per capita plot
     fig_em_cap = px.line(
         df_em_cap, 
@@ -70,6 +95,12 @@ with st.expander("# CO₂ Emissionen"):
 
     # import co2 emissions per land area data
     df_em_land = pd.read_csv("Data/emissions_per_land_area.csv")
+
+    # df_em_land should only have data for the selected years
+    df_em_land = df_em_land[df_em_land["Jahr"].isin(range(years[0], years[1] + 1))]
+
+    # df_em_land should only have data for the selected countries
+    df_em_land = df_em_land[df_em_land["Land"].isin(country_options)]
 
     # create co2 emissions per land area plot
     fig_em_land = px.line(
@@ -100,6 +131,12 @@ with st.expander("# Vergleich Energieverbrauch"):
 
     # import energy consumption data
     df_en_cons = pd.read_csv("Data/energy_consumption.csv")
+
+    # df_en_cons should only have data for the selected years
+    df_en_cons = df_en_cons[df_en_cons["Jahr"].isin(range(years[0], years[1] + 1))]
+
+    # df_en_cons should only have data for the selected countries
+    df_en_cons = df_en_cons[df_en_cons["Land"].isin(country_options)]
 
     # create energy consumption per country plot
     fig_en_cons = px.line(
@@ -148,6 +185,12 @@ with st.expander("# Vergleich grüne Energieproduktion"):
 
     # import renewable energy production data
     df_ren_en_prod = pd.read_csv("Data/renewable_energy_production.csv")
+
+    # df_ren_en_prod should only have data for the selected years
+    df_ren_en_prod = df_ren_en_prod[df_ren_en_prod["Jahr"].isin(range(years[0], years[1] + 1))]
+
+    # df_ren_en_prod should only have data for the selected countries
+    df_ren_en_prod = df_ren_en_prod[df_ren_en_prod["Land"].isin(country_options)]
 
     energy_selector = st.selectbox(
         "###### Selektieren Sie eine Energiequelle",
@@ -226,7 +269,7 @@ with st.expander("## Ereignisse in der Energieproduktion"):
     with col2:
         energy_selector_2 = st.selectbox(
             "###### und eine Energiequelle",
-            ('Wind', 'Wasser', 'Solar', 'Biomasse'),
+            ('Wind', 'Wasser', 'Solar'),
             key = 'unique_key_2')
 
     st.divider()
