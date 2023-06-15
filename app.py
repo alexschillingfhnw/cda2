@@ -17,16 +17,14 @@ with st.sidebar:
     st.write("Mithilfe von Slidern und Multiselektoren ist es möglich, die einzelnen Plots auf ein bestimmtes Jahr und ein bestimmtes Land zu beschränken.")
 
     # Slider
-    years = st.slider("Jahren", 1990, 2021, (1990, 2021))
+    years = st.slider("Zeitraum", 1990, 2021, (1990, 2021))
 
     # multiselect for countries
     country_options = st.multiselect(
         "Länder",
         ["Germany", "United Kingdom", "Switzerland", "Spain"],
         ["Germany", "United Kingdom", "Switzerland", "Spain"],
-    )    
-    print(country_options)
-
+    )
 
 st.write("# Policy Advices zur Erzeugung von Energie ohne Treibhausgasausstoss")
 st.write("## Willkommen!")
@@ -40,10 +38,11 @@ with st.expander("Anleitung"):
     st.markdown("""
 Dieser Leitfaden zeigt Ihnen, wie Sie unser interaktives Dashboard am besten nutzen können. Hier sind einige wichtige Tipps:
 
-1. Filtern: Nutzen Sie die Filter, um Ihre Daten nach bestimmten Kriterien zu sortieren. Zum Beispiel können Sie nach einem bestimmten Land filtern, um nur Daten aus diesem Land anzuzeigen.
-2. Zeitraum anpassen: Verwenden Sie den Schieberegler unter den Filtern, um den Zeitraum auszuwählen, für den Sie Daten anzeigen möchten. Sie können den Start- und Endpunkt der Datenauswahl anpassen.
-3. Plots analysieren: Jeder Plot auf dem Dashboard bietet spezifische Informationen. Bewegen Sie den Cursor über bestimmte Punkte oder Bereiche im Plot, um detaillierte Informationen anzuzeigen. Diese Funktion ist besonders nützlich, um tiefer in die Daten einzutauchen und Trends zu erkennen.
+1. Filtern: Nutzen Sie die Filter, um die Daten nach bestimmten Kriterien zu sortieren. Zum Beispiel können Sie nach einem Land filtern, um nur Daten aus diesem Land anzuzeigen.
+2. Zeitraum anpassen: Verwenden Sie den Slider unter den Filtern, um den Zeitraum auszuwählen, für den Sie die Daten anzeigen möchten. Sie können den Start- und Endpunkt der Datenauswahl anpassen.
+3. Plots analysieren: Jeder Plot auf dem Dashboard bietet spezifische Informationen. Bewegen Sie den Cursor über bestimmte Punkte oder Bereiche im Plot, um detaillierte Informationen anzuzeigen.
 """)
+    st.write("")
 
 
 st.header('Datastory')
@@ -282,34 +281,46 @@ with st.expander("## Ereignisse in der Energieproduktion"):
             st.write("""
             - Einführung des Erneuerbare-Energien-Gesetzes (EEG) im Jahr 2000 und Novellierung im Jahr 2004
             - EEG förderte Investitionen in erneuerbare Energien
+            """)
+
+            st.write("")
+
+            st.image(Image.open("images/deutschland_solar.png"), caption = "Entwicklung der Zahlen")
+            st.write("Quelle: [Bundesnetzagentur](https://www.bundesnetzagentur.de/DE/Fachthemen/ElektrizitaetundGas/ErneuerbareEnergien/ZahlenDatenInformationen/start.html)")
+
+            st.write("")
+
+            st.write("""
             - EEG stellte eine Einspeisevergütung für Strom aus erneuerbaren Quellen
             - Einspeisevergütung war höher als der Marktpreis für Strom
             - Betrieb von Solaranlagen wurde dadurch wirtschaftlich rentabel
             """)
 
+            st.write("")
             st.write("#### 2. Was sind die Gründe dafür, dass Deutschland im Vergleich zu anderen Ländern eine deutlich höhere Solarenergieproduktion aufweist?")
             st.write("""
             - Attraktive Einspeisevergütungen für Solarstrom seit 2000 → Ansturm auf die Installation von Solarpanels
-            - Technologischer Fortschritt im Bereich der Solartechnologie → Kostensenkung & höhere Effizienz
-            - Hoher Akzeptanz und Nachfrage nach Solarenergie in der Bevölkerung
-            - Frühe Adaption
             """)
 
-            st.divider()
-
-            st.write("##### Weitere Daten zur Solarenergie in Deutschland")
-
-            st.image(Image.open("images/deutschland_solar.png"), caption = "Entwicklung der Zahlen")
-            st.write("Quelle: [Bundesnetzagentur](https://www.bundesnetzagentur.de/DE/Fachthemen/ElektrizitaetundGas/ErneuerbareEnergien/ZahlenDatenInformationen/start.html)")
+            st.write("")
 
             st.image(Image.open("images/deutschland_solar_2.png"), caption = "Anzahl Anlagen für Solarenergie")
             st.write("Quelle: [Bundesnetzagentur](https://www.bundesnetzagentur.de/DE/Fachthemen/ElektrizitaetundGas/ErneuerbareEnergien/ZahlenDatenInformationen/start.html)")
 
+            st.write("")
+
+            st.write("""
+            - Technologischer Fortschritt im Bereich der Solartechnologie → Kostensenkung & höhere Effizienz
+            - Frühe Adaption
+            - Hoher Akzeptanz und Nachfrage nach Solarenergie in der Bevölkerung
+            """)
+
+            st.write("")
+
             st.image(Image.open("images/deutschland_solar_3.png"), caption = "Arbeitsplätze in der Solarbranche")
             st.write("Quelle: [Bundesnetzagentur](https://strom-report.com/photovoltaik/)")
             
-            st.divider()
-
+            st.write("")
             st.write("##### Textquellen:")
             st.write("""
             - [Bundesnetzagentur - EEG in Zahlen](https://www.bundesnetzagentur.de/DE/Fachthemen/ElektrizitaetundGas/ErneuerbareEnergien/ZahlenDatenInformationen/start.html)
@@ -317,21 +328,19 @@ with st.expander("## Ereignisse in der Energieproduktion"):
             - [STROM REPORT - Hoher Akzeptanz und Nachfrage nach Solarenergie](https://strom-report.com/photovoltaik/)
             - [Erneuerbare Energien - Redaktion Dossier](https://www.erneuerbare-energien.de/EE/Redaktion/DE/Dossier/eeg.html)
             """)
+            st.write("")
 
         elif energy_selector_2 == "Wind":
+
             st.write("#### 1. Warum stieg die Produktion so stark ab 2010?")
             st.write("""
             - Das Erneuerbare-Energien-Gesetz (EEG) wurde novelliert, um die Einspeisevergütung für Strom aus erneuerbaren Quellen zu erhöhen.
             - Ein neues System von Ausschreibungen für Windenergie an Land wurde eingeführt, um die Kosten für den Ausbau der Windenergie zu senken.
             - Anstatt einer garantierten Einspeisevergütung wurde ein wettbewerbliches Vergütungssystem eingeführt, bei dem Windkraftanlagenbetreiber um den Zuschlag für den Bau neuer Anlagen konkurrieren.
             """)
-
-            st.divider()
-
-            st.write("##### Weitere Daten zur Windenergie in Deutschland")
+            st.write("")
 
             col8, col9 = st.columns(2)
-
 
             with col8:
                 st.image(Image.open("images/deutschland_wind_an_land_zuwachs.png"), caption = "Wind an Land Zuwachs Deutschland")
@@ -341,19 +350,20 @@ with st.expander("## Ereignisse in der Energieproduktion"):
                 st.image(Image.open("images/deutschland_wind_auf_see_zuwachs.png"), caption = "Wind auf See Zuwachs Deutschland")
                 st.write("Quelle: [Bundesnetzagentur - Statistiken erneuerbarer Energieträger](https://www.bundesnetzagentur.de/SharedDocs/Downloads/DE/Sachgebiete/Energie/Unternehmen_Institutionen/ErneuerbareEnergien/ZahlenDatenInformationen/EEStatistikMaStRBNetzA.pdf?__blob=publicationFile&v=16)")
 
+            st.write("")
             st.write("##### Ausbau von Windleistungen")
-            st.write("Wir sehen, dass Deutschland in den letzten Jahren erhebliche Fortschritte beim Ausbau der Windenergie auf Land und See gemacht hat. Diese Fortschritte zeigen sich in der Zunahme der installierten Kapazität von Windenergieanlagen. Doch Deutschland hat noch grössere Ziele für die Zukunft: Bis zum Jahr 2030 soll die installierte Kapazität von Windenergieanlagen an Land auf 115’000MW und auf See auf 30’000MW erhöht werden, um eine noch grössere Menge an erneuerbarem Strom zu erzeugen und so den Klimawandel zu bekämpfen.")
-
-            st.divider()
-
+            st.write("Wir sehen, dass Deutschland in den letzten Jahren erhebliche Fortschritte beim Ausbau der Windenergie auf Land und See gemacht hat. Diese Fortschritte zeigen sich in der Zunahme der installierten Kapazität von Windenergieanlagen. Doch Deutschland hat noch grössere Ziele für die Zukunft: Bis zum Jahr 2030 soll die installierte Kapazität von Windenergieanlagen an Land auf 115'000MW und auf See auf 30'000MW erhöht werden, um eine noch grössere Menge an erneuerbarem Strom zu erzeugen und so den Klimawandel zu bekämpfen.")
+            
+            st.write("")
             st.write("##### Textquellen:")
             st.write("""
             - [EEG - Das Erneuerbare Energien Gesetz](https://www.erneuerbare-energien.de/EE/Redaktion/DE/Dossier/eeg.html?docId=95221d23-82f7-4dc4-9beb-e5776d5ca7a0)
             - [Wikipedia - Geschichte der Windenergienutzung](https://de.wikipedia.org/wiki/Geschichte_der_Windenergienutzung)
             """)
-
+            st.write("")
 
         elif energy_selector_2 == "Wasser":
+
             st.write("#### 1. Was ist der Grund für die konstante Wasserenergie?")
             st.write("""
             - Die Stromerzeugung aus Wasserkraft in Deutschland blieb seit den 1990er Jahren relativ konstant.
@@ -361,17 +371,18 @@ with st.expander("## Ereignisse in der Energieproduktion"):
             - Es wurden andere erneuerbare Energien bevorzugt, wie Solar und Wind.
             """)
 
+            st.write("")
             st.write("#### 2. Warum konnte man das ganze nicht noch weiter Ausbreiten?")
             st.write("""
             - Schwieriger Zugang zu verbleibenden Standorten
             - Genehmigungsverfahren wurden aufgrund von Umwelt- und Naturschutzbedenken strenger
             """)
 
-            st.divider()
-
+            st.write("")
             st.write("##### Textquellen:")
             st.write("""
             """)
+            st.write("")
 
     elif country_selector == "Grossbritannien":
             
@@ -379,17 +390,70 @@ with st.expander("## Ereignisse in der Energieproduktion"):
 
             st.write("#### 1. Warum gibt es ab 2010 einen Anstieg?")
             st.write("""
-            - Feed-in Tariff (FIT) wurde von der Regierung entwickelt, um die Einführung erneuerbarer und kohlenstoffarmer Stromerzeugung zu fördern.
-            - Das am 1. April 2010 eingeführte System verpflichtet teilnehmende lizenzierte Stromversorger, Zahlungen für Strom zu leisten, der von akkreditierten Anlagen erzeugt und exportiert wird.
+            - Feed-in Tariff (FIT) wurde von der Regierung entwickelt, um die Einführung erneuerbarer und kohlenstoffarmer Stromerzeugung zu fördern. Das am 1. April 2010 eingeführte System verpflichtet teilnehmende lizenzierte Stromversorger, Zahlungen für Strom zu leisten, der von akkreditierten Anlagen erzeugt und exportiert wird.
+            - Erreichung des FIT im Vergleich zu den in der Folgenabschätzung 2010 festgelegten Zielen
             """)
+            st.write("")
 
+
+            col10, col11 = st.columns(2)
+
+            with col10:
+                st.image(Image.open("images/uk_FIT_1.png"))
+
+            with col11:
+                st.image(Image.open("images/uk_FIT_2.png"))
+
+            st.write("- Im folgenden Plot sieht man wie die Anzahl der Installation zugenommen hat, aufgrund dem Feed-in Tariff")
+            st.write("")
+
+            col12, col13 = st.columns(2)
+
+            with col12:
+                st.image(Image.open("images/uk_feed_in_tariffs_installations.png"))
+
+            with col13:
+                st.write("")
+                st.write("""\n ##### Legende:
+- Mikro-Kraft-Wärme-Kopplung (Micro CHP)
+- Anaerobe Vergärung (AD)
+- Windkraft (Wind)
+- Wasserkraft (Hydro)
+- Solar-Photovoltaik (PV)
+                """)
+
+            st.write("Die fast 700’000 Installationen am Ende des fünften Jahres (siehe Abbildung oben) stellen einen Anstieg der kumulierten installierten FIT-Kapazität um 30 % dar (siehe Abbildung unten), verglichen mit einem Anstieg der Anzahl der Installationen um 25 % am Ende des vierten Jahres. Der Unterschied zwischen kumulierter Installation und kumulierter installierter Leistung lässt sich am Beispiel von Photovoltaik und Windenergie veranschaulichen. Photovoltaikanlagen (Mikroerzeugung) unter 50 kW machten 99 % (669’852) der Gesamtzahl der Photovoltaikanlagen aus, jedoch nur 82 % (2.452 MW) der gesamten installierten Photovoltaikleistung. Im Gegensatz dazu machte die Windenergie nur 1 % der Anlagen (6.839), aber 11 % der gesamten installierten Leistung (398 MW) aus. Da die durchschnittliche Kapazität pro Windkraftanlage zunahm, während die durchschnittliche Kapazität pro Solar-PV-System ziemlich konstant blieb, stieg die kumulierte installierte Kapazität von Wind im Vergleich zu Solar-PV um 14 %. Infolgedessen dominiert PV immer noch die kumulierte installierte Leistung, aber Wind und AD spielen aufgrund der relativ grossen durchschnittlichen installierten Leistung eine grössere Rolle in der kumulierten installierten Leistung (siehe den Unterabschnitt zu Wind und AD weiter unten). Die kumulierte Kapazität der FIT-fähigen Anlagen in der folgenden Tabelle spiegelt auch das Erzeugungspotenzial genauer wider.")
+
+            col14, col15 = st.columns(2)
+
+            with col14:
+                st.image(Image.open("images/uk_feed_in_tariffs_capacity.png"))
+
+            st.write("##### Quellen:")
+            st.write("""
+            - [Department of Energy & Climate Change - Performance and Impact of the Feed- in Tariff Scheme (S. 6,7,12,13)](https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/456181/FIT_Evidence_Review.pdf)
+            - [ofgem - About the FIT scheme](https://www.ofgem.gov.uk/environmental-and-social-schemes/feed-tariffs-fit#:~:text=The%20FIT%20scheme%20was%20launched,Capacity%20and%20Functions)
+            """)
+                
+            st.write("")
             st.write("#### 2. Warum gibt es ab 2014 einen noch steileren Anstieg?")
             st.write("""
             - Contract for Difference (CfD) wurde eingeführt.
             - CfD ist eine langfristige vertragliche Vereinbarung zwischen einem Stromerzeuger mit geringem Kohlendioxidausstoss und der Low Carbon Contracts Company (LCCC), die dem Erzeuger während der gesamten Vertragslaufzeit Preissicherheit bieten soll.
             - Dieses System schützt erneuerbare Energieerzeuger vor Preisschwankungen auf dem Energiemarkt und gibt ihnen Planungssicherheit für ihre Investitionen. Gleichzeitig schützt es die Verbraucher, da die Energieerzeuger die Differenz zurückzahlen müssen, wenn der Marktpreis höher ist als der Strike-Preis.
+            - Das zentrale Angebot an die erfolgreichen Bieter besteht darin, einen 15-jährigen Differenzvertrag (CfD) mit inflationsindexierten Zahlungen und einer Reihe von Verpflichtungen zur Bereitstellung der vertraglich vereinbarten Kapazität innerhalb eines bestimmten Zeitrahmens zu erhalten. Der Vertrag garantiert den Entwicklern zusätzliche Einnahmen, wenn der Grosshandelsmarktpreis, der "Referenzpreis", unter dem "Basispreis" liegt, der ein Mass für die Kosten der Investition in eine kohlenstoffarme Technologie ist. Liegt der Referenzpreis über dem Basispreis, müssen die Entwickler Zahlungen an die Gegenpartei (LCCC) leisten. Wie in der Abbildung unten dargestellt.
             """)
 
+            st.image(Image.open("images/uk_cfd_payment_mechanism.png"), width = 800, caption = "CfD Payment mechanism. Source: Planning Our Electric Future White Paper. DECC 2011")
+            
+            st.write("")
+            st.write("##### Quellen:")
+            st.write("""
+            - [Department for Business, Energy & Industrial Strategy - EVALUATION OF THE CONTRACTS FOR DIFFERENCE SCHEME (S.6)](https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/1075101/CfD_evaluation_phase_1_final_report.pdf)
+            - [low carbon contracts - CfD](https://www.lowcarboncontracts.uk/contracts-for-difference)
+            """)
+            
+            st.write("")
             st.write("#### 3. Warum flacht der Anstieg in 2019 wieder ab?")
             st.write("""
             - Schliessung des FIT-Systems: Nach der Schliessung des FIT-Systems für neue Anmeldungen im April 2019 wurde das SEG-System eingeführt.
@@ -401,15 +465,13 @@ with st.expander("## Ereignisse in der Energieproduktion"):
             - Lieferprobleme: Die Pandemie und der Brexit haben beide zu Unterbrechungen in den Lieferketten geführt, welche die Lieferung von Materialien und Ausrüstungen für erneuerbare Energien beeinträchtigt haben könnten.
             """)
 
-            st.divider()
-
+            st.write("")
             st.write("##### Textquellen:")
             st.write("""
-            - [About the FIT scheme](https://www.ofgem.gov.uk/environmental-and-social-schemes/feed-tariffs-fit#:~:text=The%20FIT%20scheme%20was%20launched,Capacity%20and%20Functions)
             - [Scheme Closure](https://www.ofgem.gov.uk/environmental-and-social-schemes/feed-tariffs-fit/scheme-closure)
-            - [Contracts for Difference (CfD)](https://www.lowcarboncontracts.uk/contracts-for-difference)
             - [About the Smart Export Guarantee (SEG)](https://www.ofgem.gov.uk/environmental-and-social-schemes/smart-export-guarantee-seg#:~:text=About%20the%20Smart%20Export%20Guarantee%20(SEG)&text=The%20SEG%20requires%20some%20electricity,providing%20certain%20criteria%20are%20met.)
             """)
+            st.write("")
 
         elif energy_selector_2 == "Wind":
 
@@ -422,6 +484,7 @@ with st.expander("## Ereignisse in der Energieproduktion"):
             - In den letzten Jahren hat das Vereinigte Königreich seine Bemühungen zur Förderung von Windenergie weiter intensiviert. Im Jahr 2020 kündigte die Regierung beispielsweise an, dass sie das Ziel verfolgt, bis 2030 die Offshore-Windenergiekapazität auf 40 Gigawatt zu erhöhen, was ausreichen würde, um alle Haushalte im Land mit Strom zu versorgen.
             """)
 
+            st.write("")
             st.write("#### 2. Wieso gibt es bei 2020 einen Abstieg?")
             st.write("""
             - Wir haben leider ausser dem Offshore-Windenergie-Abkommen nichts diesbezüglich gefunden.
@@ -430,31 +493,31 @@ with st.expander("## Ereignisse in der Energieproduktion"):
             - Es gibt jedoch Herausforderungen bei den Lieferketten, der Netzverbindung, den Hafeninvestitionen und der Arbeitskräftebeschaffung. Die Verfügbarkeit idealer Standorte nimmt ab, was dazu führt, dass Entwicklungen weiter draussen im Meer stattfinden müssen. Schwimmende Offshore-Windkraftanlagen könnten eine Lösung bieten, da die britische Regierung ein Ziel von 5 GW schwimmendem Wind bis 2030 hat.
             """)
 
-            st.divider()
-
+            st.write("")
             st.write("##### Textquellen:")
             st.write("""
             - [Grossbritannien gibt Ziele für Offshore Windenergie 2030 bekannt](https://www.iwr.de/news/grossbritannien-gibt-ziele-fuer-offshore-windenergie-2030-bekannt-news35869)
             - [Can the UK achieve its 50 GW offshore wind target by 2030?](https://www.dnv.com/article/can-the-uk-achieve-its-50-gw-offshore-wind-target-by-2030--224379)
             )
             """)
+            st.write("")
 
         elif energy_selector_2 == "Wasser":
 
-            st.write("#### 1. Hat Grossbritannien überhaupt etwas beüzglich der Wasserkraftenergie übernommen?")
+            st.write("#### 1. Hat Grossbritannien überhaupt etwas bezüglich der Wasserkraftenergie unternommen?")
             st.write("""
             - Ja, das System der Renewables Obligation wurde am 1. April 2017 für alle neuen Erzeugungskapazitäten geschlossen.
             - Das System der Renewables Obligation (RO) wurde entwickelt, um die Erzeugung von Strom aus förderfähigen erneuerbaren Quellen im Vereinigten Königreich zu fördern. Die RO-Regelung trat 2002 in Grossbritannien in Kraft, Nordirland folgte im Jahr 2005.
             - Die Regelung verpflichtet die Stromversorger, jährlich eine bestimmte Anzahl von Renewables Obligation Certificates (ROCs) pro Megawattstunde (MWh) Strom vorzulegen, die sie in jedem Verpflichtungszeitraum (1. April - 31. März) an ihre Kunden liefern. Die Versorger können ihre jährliche Verpflichtung erfüllen, indem sie ROCs vorlegen, eine Zahlung in einen Buy-out-Fonds leisten oder eine Kombination aus beidem.
             """)
 
-            st.divider()
-
+            st.write("")
             st.write("##### Textquellen:")
             st.write("""
             - [Renewables Obligation (RO) - iea](https://www.iea.org/policies/4182-renewables-obligation-ro)
             - [Renewables Obligation (RO) - ofgem](https://www.ofgem.gov.uk/environmental-and-social-schemes/renewables-obligation-ro)
             """)
+            st.write("")
 
     elif country_selector == "Schweiz":
             
@@ -468,6 +531,7 @@ with st.expander("## Ereignisse in der Energieproduktion"):
             - Heute ist die Netzparität erreicht und Solarstrom ist billiger wie früher.
             """)
 
+            st.write("")
             st.write("#### 2. Warum hat die Schweiz im Vergleich zu anderen Länder relativ wenig Solarenergie?")
             st.write("""
             - Bergige Regionen erschweren den Einsatz von Solaranlagen.
@@ -476,6 +540,7 @@ with st.expander("## Ereignisse in der Energieproduktion"):
             - Bürokratie und lange Genehmigungsverfahren verlangsamen den Ausbau.
             """)
 
+            st.write("")
             st.write("#### 3. Da wir in der Schweiz teilorts öfters Nebel haben, können Solaranlagen damit umgehen? Lohnt es sich dann überhaupt eine Solaranlage zu installieren?")
             st.write("""
             - Generell produzieren Solaranlagen auch im Nebel Strom.
@@ -516,8 +581,8 @@ with st.expander("## Ereignisse in der Energieproduktion"):
 - Kanton Zug
 - Kanton Thurgau
 - Rheintal """)
-            st.divider()
 
+            st.write("")
             st.write("##### Das Problem:")
             st.write("In der Schweiz gibt es Regionen mit viel Sonnenschein, in denen jedoch nur wenig bis gar keine Solaranlagen ausgebaut wurden. Dies liegt zum einen an der schwierigen Topografie und der fehlenden Infrastruktur in den Alpenregionen. Das Bauen von Anlagen auf sonnigen Hängen in den Bergen erfordert eine beträchtliche Menge an Stromleitungen und anderer Infrastruktur für den Betrieb und die Wartung der Anlagen. Darüber hinaus spielt auch der Landschaftsschutz eine Rolle, da der Erhalt der natürlichen Schönheit der alpinen Landschaft Priorität hat.")
 
@@ -530,8 +595,7 @@ Gemäss dem schweizerischen Energiegesetz, Artikel 71.a, Absatz 4, erhalten Anla
             st.write("##### Was kann man machen?")
             st.write("Eine vielversprechende Möglichkeit besteht darin, Solaranlagen auf dem Wasser von Stauseen zu installieren. Diese Standorte bieten eine bereits vorhandene Infrastruktur und ermöglichen eine effiziente Nutzung der Fläche für die Solarenergiegewinnung und nimmt nicht viel weg von der natürlichen Schönheit. Eine weitere Möglichkeit wäre Solaranlagen oberhalb von Parkplätzen auszubauen.")
 
-            st.divider()
-
+            st.write("")
             st.write("##### Textquellen:")
             st.write("""
             - [UVEK - Elektrizitätsproduktionsanlagen in der Schweiz](https://www.uvek-gis.admin.ch/BFE/storymaps/EE_Elektrizitaetsproduktionsanlagen/)
@@ -539,6 +603,7 @@ Gemäss dem schweizerischen Energiegesetz, Artikel 71.a, Absatz 4, erhalten Anla
             - [SRF - Energiewende in den Alpen: Jetzt beginnt das Wettrennen um die Solar-Bundessubventionen](https://www.srf.ch/news/schweiz/energiewende-in-den-alpen-jetzt-beginnt-das-wettrennen-um-die-solar-bundessubventionen)
             )
             """)
+            st.write("")
 
         if energy_selector_2 == "Wind":
 
@@ -552,11 +617,11 @@ Gemäss dem schweizerischen Energiegesetz, Artikel 71.a, Absatz 4, erhalten Anla
             - Windgeschwindigkeiten in der Schweiz sind im Vergleich zu Deutschland und England niedriger, ausgenommen auf den Bergspitzen der Alpen. (siehe Visualisierungen unten)
             """)
 
+            st.write("")
             st.write("#### 2. Wird es geplant, weitere Windparks oder Einzelanlagen zu installieren?")
             st.write("Ja, es ist 1 Windpark in Bau, 18 Projekte in Bewilligungsverfahren und 35 in Planung. Ein Beispiel ist das Projekt in Mollendruz im Kanton Waadt, das 12 Windkraftanlagen mit einer installierten Leistung von bis zu 50.4 MW umfassen wird (Das Projekt befindet sich momentan bei der Vorbereitung des Baugesuchs)")
 
             st.divider()
-
 
             st.write("##### Weitere Daten zur Windenergie in der Schweiz")
 
@@ -578,8 +643,7 @@ Gemäss dem schweizerischen Energiegesetz, Artikel 71.a, Absatz 4, erhalten Anla
             st.write("Die mittlere Grafik zeigt die Interessen des Bundes und stellt potenzielle Standorte für den Bau von Windkraftanlagen dar. Dabei ist zu beachten, dass die dargestellten Daten nicht zu 100 Prozent genau sind und weitere detaillierte Untersuchungen erforderlich sind. Dennoch liefert die Grafik eine bessere Orientierung, wo der Ausbau von Windkraftanlagen möglich sein könnte. Basierend auf den beiden Grafiken scheinen potenzielle Standorte auf den kleineren Bergen zwischen Aargau und Zürich, in Teilen des Jura-Gebirges, im St. Galler Rheintal und im Gebiet zwischen dem Neuenburgersee und dem Genfersee geeignet zu sein.")
             st.write("Im rechten Bild werden die Windgeschwindigkeiten auf einer Höhe von 100 Metern für ganz Europa dargestellt. Hier ist erkennbar, dass die Schweiz im Vergleich zu den nordischen Ländern niedrigere Windgeschwindigkeiten aufweist.")
 
-            st.divider()
-
+            st.write("")
             st.write("##### Textquellen:")
             st.write("""
             - [Der Bundesrat - Beschleunigung Bewilligungsverfahren](https://www.uvek-gis.admin.ch/BFE/storymaps/EE_Elektrizitaetsproduktionsanlagen/)
@@ -587,6 +651,7 @@ Gemäss dem schweizerischen Energiegesetz, Artikel 71.a, Absatz 4, erhalten Anla
             - [Suisse EOLE - Windenergie](https://suisse-eole.ch/de/windenergie/windparks/)
             - [Suisse EOLE - Factsheet](https://suisse-eole.ch/wp-content/uploads/2023/04/20_SE_02_FACTSHEET_Anpassung_D_V3_230404.pdf)
             """)
+            st.write("")
 
         if energy_selector_2 == "Wasser":
 
@@ -597,6 +662,7 @@ Gemäss dem schweizerischen Energiegesetz, Artikel 71.a, Absatz 4, erhalten Anla
             - Wasserkraft ist eine bewährte Technologie, die der Schweiz ermöglicht, ihre Energiesicherheit zu gewährleisten und Emissionen zu reduzieren.
             """)
 
+            st.write("")
             st.write("#### 2. Wie können sie die Produktion so konstant hoch behalten?")
             st.write("""
             - Durch Energiespeicher und Wasserkraftpumpen kann die Produktion von Wasserkraftwerken in der Schweiz konstant gehalten werden.
@@ -604,12 +670,12 @@ Gemäss dem schweizerischen Energiegesetz, Artikel 71.a, Absatz 4, erhalten Anla
             - Wasserkraftpumpen können genutzt werden, um Wasser in höher gelegene Stauseen zu pumpen und so mehr potentielle Energie zu erzeugen.
             """)
 
-            st.divider()
-
+            st.write("")
             st.write("##### Textquellen:")
             st.write("""
             - [BFE - Erneuerbare Energien Wasserkraft](https://www.bfe.admin.ch/bfe/de/home/versorgung/erneuerbare-energien/wasserkraft.html)
-            """)         
+            """)     
+            st.write("")    
 
     elif country_selector == "Spanien":
             
@@ -622,6 +688,7 @@ Gemäss dem schweizerischen Energiegesetz, Artikel 71.a, Absatz 4, erhalten Anla
             - Keine klare Strategie für den Ausbau erneuerbarer Energien.
             """)
 
+            st.write("")
             st.write("#### 2. Warum flachte die Produktion von Solarenergie nach 2009 ab?")
             st.write("""
             - Da Spanien sich noch immer in einer Wirtschaftskrise befand, waren sie gezwungen, Korrekturen vorzunehmen und Subventionen zu kürzen.
@@ -631,12 +698,14 @@ Gemäss dem schweizerischen Energiegesetz, Artikel 71.a, Absatz 4, erhalten Anla
             - Ausbaustopp: Die Solarinvestitionen, die bis Ende des Jahres 2007 auf geschätzte mehr als 15 Milliarden Euro angeschwollen waren, kamen zwei Jahre später so gut wie zum Stillstand.
             """)
 
+            st.write("")
             st.write("#### 3. Was ist in 2015 passiert?")
             st.write("""
             - Die spanische Regierung führte eine "Sonnensteuer" ein, die Besitzer von Solaranlagen dazu verpflichtete, eine Gebühr für die Erzeugung von Strom zu zahlen, den sie selbst verbrauchten.
             - Diese Politik wurde stark kritisiert und behinderte das Wachstum der Solarenergie
             """)
 
+            st.write("")
             st.write("#### 4. Warum gab es ab 2019 einen so starken Anstieg?")
             st.write("""
             - Abschaffung der “Sonnensteuer”
@@ -646,8 +715,7 @@ Gemäss dem schweizerischen Energiegesetz, Artikel 71.a, Absatz 4, erhalten Anla
                 - Wachsende Nachfrage nach erneuerbaren Energien
             """)
 
-            st.divider()
-
+            st.write("")
             st.write("##### Textquellen:")
             st.write("""
             - [FAZ - Spanien Abschied von der Solar-Weltmacht](https://www.faz.net/aktuell/wirtschaft/wirtschaftspolitik/spanien-abschied-von-der-solar-weltmacht-1227724.html)
@@ -656,7 +724,8 @@ Gemäss dem schweizerischen Energiegesetz, Artikel 71.a, Absatz 4, erhalten Anla
             - [Idealista - Boom von Solarstrom in Spanien](https://www.idealista.com/de/news/leben-in-spanien/2020/09/23/7761-ein-neues-gesetz-zum-eigenverbrauch-laesst-den-solarstrom-in-spanien-wieder-boomen)
             - [German Energy Solutions - Spanien Marktanalyse](https://www.german-energy-solutions.de/GES/Redaktion/DE/Publikationen/Marktanalysen/2021/zma-spanien-2021-h2.pdf?__blob=publicationFile&v=4)
             - [Mariscal Abogados - Einspeisevergütungen Spanien](https://www.mariscal-abogados.de/die-abschaffung-des-einspeiseverguetung-system-in-spanien/)
-            """)    
+            """)   
+            st.write("")
 
         if energy_selector_2 == "Wind":
 
@@ -667,6 +736,7 @@ Gemäss dem schweizerischen Energiegesetz, Artikel 71.a, Absatz 4, erhalten Anla
             - Erhöhung des Strompreises
             """)
 
+            st.write("")
             st.write("#### 2. Warum ist sie 2016 wieder gestiegen? Was waren die Auslöser?")
             st.write("""
             - Veränderte politische Landschaft
@@ -675,14 +745,14 @@ Gemäss dem schweizerischen Energiegesetz, Artikel 71.a, Absatz 4, erhalten Anla
             - Ausschreibungen: Förderte den Wettbewerb und trieb die Kosten weiter nach unten, was den Ausbau von Windkraftanlagen begünstigte
             """)
 
-            st.divider()
-
+            st.write("")
             st.write("##### Textquellen:")
             st.write("""
             - [Roedl - Erneuerbare Energien Neue Abgaben](https://www.roedl.de/themen/erneuerbare-energien/neue-abgaben-f%C3%BCr-die-stromerzeuger-in-spanien)
             - [German Energy Solutions - Ausschreibungen in Spanien](https://www.german-energy-solutions.de/GES/Redaktion/DE/Standardartikel/Marktinformationen/Ausschreibungen/2022/20220810-spanien.html)
             - [German Energy Solutions - Ausschreibungen in Spanien](https://climate.ec.europa.eu/eu-action/climate-strategies-targets/2030-climate-energy-framework_de)
             """)   
+            st.write("")
 
         if energy_selector_2 == "Wasser":
 
@@ -690,8 +760,19 @@ Gemäss dem schweizerischen Energiegesetz, Artikel 71.a, Absatz 4, erhalten Anla
             st.write("""
             - Die Produktion von Wasserkraft schwankt aufgrund von Schwankungen in der Verfügbarkeit und dem Volumen des Wassers, das zur Stromerzeugung genutzt wird.
             - In regenreichen Jahren kann die Jahreserzeugung 40 Mrd. kWh überschreiten, während sie in trockenen Jahren weniger als 25 Mrd. kWh beträgt.
+            - Regenfall in Spanien:
             """)
 
+            st.write("")
+
+            st.image(Image.open("images/spanien_regenfall.png"), caption = "Regenfall in Spanien")
+
+            st.write("")
+            st.write("Quelle: [Trading Economics - Spain Average Precipitation](https://tradingeconomics.com/spain/precipitation)")
+
+            st.write("Man kann sagen, dass die Produktion von Wasserkraftwerken abhängig von der Regenmenge ist (vor allem sichtbar in den Jahren 2010 und 2017). Heutzutage gibt es häufiger Dürren, was heisst, dass die Wassermengen sinken. Dadurch gibt es weniger Wasser in den Stauseen, was die Produktion von Wasserkraftwerken stark beeinflussen können.")
+
+            st.write("")
             st.write("#### 2. Warum ist sie 2016 wieder gestiegen? Was waren die Auslöser?")
             st.write("""
             - In Spanien hat die Rolle der Wasserkraft in den letzten Jahren abgenommen.
@@ -700,12 +781,12 @@ Gemäss dem schweizerischen Energiegesetz, Artikel 71.a, Absatz 4, erhalten Anla
             - Spanien investiert deshalb eher in andere erneuerbare Energiequellen wie Solar- und Windenergie.
             """)
 
-            st.divider()
-
+            st.write("")
             st.write("##### Textquellen:")
             st.write("""
             - [Costa Nachrichten - Energiewende](https://www.costanachrichten.com/spanien/politik-wirtschaft/spanien-erneuerbare-energien-energiewende-2022-gas-solarenergie-windkraft-biomasse-strompreis-91737644.html)
-            """)   
+            """)
+            st.write("")
 
 
 # -------------- 5. POLICY ADVICES ---------------
@@ -715,74 +796,15 @@ st.write("### 5. Policy Advices")
 with st.expander("## Policy Advices"):
     st.write("Hier werden aus den wichtigsten Erkenntnisse aus den vorherigen Abschnitten Handlungsempfehlungen abgeleitet. Diese Empfehlungen sollen den Entscheidungsträgern in der Politik helfen, die richtigen Massnahmen zu ergreifen, um die Energiewende voranzutreiben.")
 
-    st.write("#### Hypothese 1")
+    st.write("#### Policy Advice 1")
     st.write("Die übermässigen Einspeisevergütungen in Spanien führten zu erheblichen finanziellen Belastungen, mit Staatsschulden in Höhe von über 9 Milliarden Euro, hauptsächlich aufgrund der Diskrepanz zwischen der Einspeisevergütung und den Strompreisobergrenzen. Dies hat dazu geführt, dass seit 2016 Betreiber von Photovoltaikanlagen Abgaben auf installierte Leistung und erzeugte Energiemenge zahlen müssen und kleinere Anlagen (<100 kW) keine Vergütung für eingespeisten Überschussstrom erhalten. Diese Erfahrung dient als Warnung für andere Länder, wie Deutschland und Grossbritannien, bei der Gestaltung ihrer Einspeisevergütungen. Eine effektive Massnahme könnte darin bestehen, regelmässige Überprüfungen und Anpassungen der Einspeisevergütungen durchzuführen, um sicherzustellen, dass sie den Marktbedingungen entsprechen und nicht zu übermässigen Kosten führen. (siehe Plot bei 3. Vergleich Energieproduktion, Produktion der Solarenergie in Spanien flacht nach dem Jahr 2015, weil da die Sonnensteuer eingeführt wurde)")
 
-    st.write("#### Hypothese 2")
+    st.write("#### Policy Advice 2")
     st.write("Die Implementierung eines Systems wie SEG in Grossbritannien könnte in der Schweiz und in Deutschland den Anreiz (z.B. Hausbesitzer kann Ausgaben bezüglich erneuerbaren Enerigen in den nächsten 10 Jahren bei den Steuern abziehen) für Hausbesitzer und kleine Unternehmen erhöhen, in erneuerbare Energiesysteme zu investieren. Dadurch könnte der Anteil der erneuerbaren Energien insgesamt gesteigert werden.")
     
-    st.write("#### Hypothese 3")
+    st.write("#### Policy Advice 3")
     st.write("Da die Schweiz noch nicht viel Solarenergie erzeugt hat und ein Platzmangel herrscht, wäre eine vielversprechende Möglichkeit, Solaranlagen auf bereits vorhandener Infrastruktur wie z.B. Parkplätze, auf dem Wasser von Stauseen, Fassaden, Strommasten, Bahnstationen, usw. (siehe Plot bei 3. Vergleich Energieproduktion, Produktion der Solarenergie in Deutschland ist vorbildlich)")
     
-    st.write("#### Hypothese 4")
+    st.write("#### Policy Advice 4")
     st.write("In der EU gibt es einen Mangel an globalen Massnahmen. Indem Unternehmen wie Repsol freiwillige Massnahmen ergreifen, können sie nicht nur ihren eigenen ökologischen Fussabdruck reduzieren, sondern auch andere Unternehmen zur Nachahmung ermutigen. Diese Vorreiterrolle und der positive Einfluss können einen Dominoeffekt auslösen, bei dem immer mehr Unternehmen ihre eigenen Massnahmen zur Klimaneutralität entwickeln und umsetzen. Dieser kaskadierende Effekt könnte den Übergang zu einer kohlenstoffarmen Wirtschaft beschleunigen und dazu beitragen, den globalen Klimawandel effektiv anzugehen.")
     
-
-# --------- TEST -----------
-
-def create_chart():
-    # initialize Chart
- 
-    chart = Chart(
-        width="640px", height="360px", display=DisplayTarget.MANUAL
-    )
- 
-    # create and add data to Chart
- 
-    data = Data()
-    data_frame = pd.read_csv("Data/titanic.csv")
-
-    data.add_data_frame(data_frame)
- 
-    chart.animate(data)
- 
-    # add config to Chart
- 
-    chart.animate(
-        Config(
-            {
-                "x": "Count",
-                "y": "Sex",
-                "label": "Count",
-                "title": "Passengers of the Titanic",
-            }
-        )
-    )
-    chart.animate(
-        Config(
-            {
-                "x": ["Count", "Survived"],
-                "label": ["Count", "Survived"],
-                "color": "Survived",
-            }
-        )
-    )
-    chart.animate(Config({"x": "Count", "y": ["Sex", "Survived"]}))
- 
-    # add style to Chart
- 
-    chart.animate(Style({"title": {"fontSize": 35}}))
- 
-    # return generated html code
- 
-    return chart._repr_html_()
- 
- 
-# generate Chart's html code
- 
-CHART = create_chart()
- 
- 
-# display Chart
- 
-#html(CHART, width=650, height=370)
