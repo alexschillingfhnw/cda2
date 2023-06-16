@@ -10,11 +10,8 @@ from ipyvizzu import Chart, Data, Config, Style, DisplayTarget
 
 # "with" notation
 with st.sidebar:
-    st.title("Allgemeine Informationen")
-    st.write("In diesem Dashboard befinden sich Daten bezüglich der Solar-, Wind- und Wasserenergie aus den Jahren 1990 - 2021. Nebenbei werden noch Daten der CO₂ Emissionen vorgestellt. Eingeschränkt wurde das Ganze auf die Länder: Deutschland, Spanien, Schweiz und Grossbritannien")
-    
     st.title("Einstellungen")
-    st.write("Mithilfe von Slidern und Multiselektoren ist es möglich, die einzelnen Plots auf ein bestimmtes Jahr und ein bestimmtes Land zu beschränken.")
+    st.write("Mithilfe vom Zeitraum Slider und Länder-Selektoren ist es möglich, die einzelnen Plots auf bestimmte Jahren und Länder zu beschränken.")
 
     # Slider
     years = st.slider("Zeitraum", 1990, 2021, (1990, 2021))
@@ -31,7 +28,7 @@ st.write("## Willkommen!")
 
 with st.expander("Einleitung"):
     st.write("""
-        Dieses Dashboard verfügt über Analysen der erneuerbarer Energien in Deutschland, Grossbritannien, der Schweiz und Spanien. In einer Zeit, in der die Bedeutung erneuerbarer Energien immer grösser wird, ist es wichtig, Daten zu sammeln und zu analysieren, um fundierte Entscheidungen zu treffen. Unser Dashboard bietet Daten und Diagramme, die gefiltert werden können, um spezifische Trends und Muster zu erkunden. Wir haben auch eine Datastory erstellt, um wichtige Ereignisse in der Entwicklung der erneuerbaren Energien zu zeigen und die Daten zum Leben zu erwecken. Schliesslich bieten wir Policy-Advices basierend auf unseren Erkenntnissen an, um zukünftige Trends im Bereich erneuerbarer Energien zu prognostizieren.
+        Dieses Dashboard verfügt über Analysen der erneuerbarer Energien in Deutschland, Grossbritannien, der Schweiz und Spanien. In einer Zeit, in der die Bedeutung erneuerbarer Energien immer grösser wird, ist es wichtig, Daten zu sammeln und zu analysieren, um fundierte Entscheidungen zu treffen. Unsere Daten stammen aus der zuverlässigen Quelle "Our World in Data" und umfassen den Zeitraum von 1990 bis 2021. Wir haben auch eine Datastory erstellt, um wichtige Ereignisse in der Entwicklung der erneuerbaren Energien zu zeigen und die Daten zum Leben zu erwecken. Schliesslich bieten wir Policy-Advices basierend auf unseren Erkenntnissen an, um zukünftige Trends im Bereich erneuerbarer Energien zu prognostizieren.
     """)
 
 with st.expander("Anleitung"):
@@ -381,6 +378,8 @@ with st.expander("## Ereignisse in der Energieproduktion"):
             st.write("")
             st.write("##### Textquellen:")
             st.write("""
+            - [Management Circle - Wasserkraft Potenzial](https://www.managementcircle.de/blog/wasserkraft-potenzial.html)
+            - [Focus - Unbegrenzte Grüne Energie (Traum der Deutschen)](https://www.focus.de/klima/analyse/unbegrenzt-gruene-energie-der-deutsche-traum-von-der-wasserkraft-hat-einen-grossen-haken_id_193226468.html)
             """)
             st.write("")
 
@@ -422,7 +421,7 @@ with st.expander("## Ereignisse in der Energieproduktion"):
 - Solar-Photovoltaik (PV)
                 """)
 
-            st.write("Die fast 700’000 Installationen am Ende des fünften Jahres (siehe Abbildung oben) stellen einen Anstieg der kumulierten installierten FIT-Kapazität um 30 % dar (siehe Abbildung unten), verglichen mit einem Anstieg der Anzahl der Installationen um 25 % am Ende des vierten Jahres. Der Unterschied zwischen kumulierter Installation und kumulierter installierter Leistung lässt sich am Beispiel von Photovoltaik und Windenergie veranschaulichen. Photovoltaikanlagen (Mikroerzeugung) unter 50 kW machten 99 % (669’852) der Gesamtzahl der Photovoltaikanlagen aus, jedoch nur 82 % (2.452 MW) der gesamten installierten Photovoltaikleistung. Im Gegensatz dazu machte die Windenergie nur 1 % der Anlagen (6.839), aber 11 % der gesamten installierten Leistung (398 MW) aus. Da die durchschnittliche Kapazität pro Windkraftanlage zunahm, während die durchschnittliche Kapazität pro Solar-PV-System ziemlich konstant blieb, stieg die kumulierte installierte Kapazität von Wind im Vergleich zu Solar-PV um 14 %. Infolgedessen dominiert PV immer noch die kumulierte installierte Leistung, aber Wind und AD spielen aufgrund der relativ grossen durchschnittlichen installierten Leistung eine grössere Rolle in der kumulierten installierten Leistung (siehe den Unterabschnitt zu Wind und AD weiter unten). Die kumulierte Kapazität der FIT-fähigen Anlagen in der folgenden Tabelle spiegelt auch das Erzeugungspotenzial genauer wider.")
+            st.write("Die fast 700'000 Installationen am Ende des fünften Jahres (siehe Abbildung oben) stellen einen Anstieg der kumulierten installierten FIT-Kapazität um 30 % dar (siehe Abbildung unten), verglichen mit einem Anstieg der Anzahl der Installationen um 25 % am Ende des vierten Jahres. Der Unterschied zwischen kumulierter Installation und kumulierter installierter Leistung lässt sich am Beispiel von Photovoltaik und Windenergie veranschaulichen. Photovoltaikanlagen (Mikroerzeugung) unter 50 kW machten 99 % (669'852) der Gesamtzahl der Photovoltaikanlagen aus, jedoch nur 82 % (2.452 MW) der gesamten installierten Photovoltaikleistung. Im Gegensatz dazu machte die Windenergie nur 1 % der Anlagen (6.839), aber 11 % der gesamten installierten Leistung (398 MW) aus. Da die durchschnittliche Kapazität pro Windkraftanlage zunahm, während die durchschnittliche Kapazität pro Solar-PV-System ziemlich konstant blieb, stieg die kumulierte installierte Kapazität von Wind im Vergleich zu Solar-PV um 14 %. Infolgedessen dominiert PV immer noch die kumulierte installierte Leistung, aber Wind und AD spielen aufgrund der relativ grossen durchschnittlichen installierten Leistung eine grössere Rolle in der kumulierten installierten Leistung. Die kumulierte Kapazität der FIT-fähigen Anlagen in der folgenden Tabelle spiegelt auch das Erzeugungspotenzial genauer wider.")
 
             col14, col15 = st.columns(2)
 
@@ -758,7 +757,7 @@ Gemäss dem schweizerischen Energiegesetz, Artikel 71.a, Absatz 4, erhalten Anla
 
             st.write("#### 1. Warum schwankt die Energieproduktion bei Wasserkraftwerke so stark?")
             st.write("""
-            - Die Produktion von Wasserkraft schwankt aufgrund von Schwankungen in der Verfügbarkeit und dem Volumen des Wassers, das zur Stromerzeugung genutzt wird.
+            - Die Energieproduktion von Wasserkraft schwankt aufgrund von Schwankungen in der Verfügbarkeit und dem Volumen des Wassers, das zur Stromerzeugung genutzt wird.
             - In regenreichen Jahren kann die Jahreserzeugung 40 Mrd. kWh überschreiten, während sie in trockenen Jahren weniger als 25 Mrd. kWh beträgt.
             - Regenfall in Spanien:
             """)
@@ -770,7 +769,7 @@ Gemäss dem schweizerischen Energiegesetz, Artikel 71.a, Absatz 4, erhalten Anla
             st.write("")
             st.write("Quelle: [Trading Economics - Spain Average Precipitation](https://tradingeconomics.com/spain/precipitation)")
 
-            st.write("Man kann sagen, dass die Produktion von Wasserkraftwerken abhängig von der Regenmenge ist (vor allem sichtbar in den Jahren 2010 und 2017). Heutzutage gibt es häufiger Dürren, was heisst, dass die Wassermengen sinken. Dadurch gibt es weniger Wasser in den Stauseen, was die Produktion von Wasserkraftwerken stark beeinflussen können.")
+            st.write("Man kann sagen, dass die Energieproduktion von Wasserkraftwerken abhängig von der Regenmenge ist (vor allem sichtbar in den Jahren 2010 und 2017). Heutzutage gibt es häufiger Dürren, was heisst, dass die Wassermengen sinken. Dadurch gibt es weniger Wasser in den Stauseen, was die Produktion von Wasserkraftwerken stark beeinflussen können.")
 
             st.write("")
             st.write("#### 2. Warum ist sie 2016 wieder gestiegen? Was waren die Auslöser?")
@@ -800,11 +799,12 @@ with st.expander("## Policy Advices"):
     st.write("Die übermässigen Einspeisevergütungen in Spanien führten zu erheblichen finanziellen Belastungen, mit Staatsschulden in Höhe von über 9 Milliarden Euro, hauptsächlich aufgrund der Diskrepanz zwischen der Einspeisevergütung und den Strompreisobergrenzen. Dies hat dazu geführt, dass seit 2016 Betreiber von Photovoltaikanlagen Abgaben auf installierte Leistung und erzeugte Energiemenge zahlen müssen und kleinere Anlagen (<100 kW) keine Vergütung für eingespeisten Überschussstrom erhalten. Diese Erfahrung dient als Warnung für andere Länder, wie Deutschland und Grossbritannien, bei der Gestaltung ihrer Einspeisevergütungen. Eine effektive Massnahme könnte darin bestehen, regelmässige Überprüfungen und Anpassungen der Einspeisevergütungen durchzuführen, um sicherzustellen, dass sie den Marktbedingungen entsprechen und nicht zu übermässigen Kosten führen. (siehe Plot bei 3. Vergleich Energieproduktion, Produktion der Solarenergie in Spanien flacht nach dem Jahr 2015, weil da die Sonnensteuer eingeführt wurde)")
 
     st.write("#### Policy Advice 2")
-    st.write("Die Implementierung eines Systems wie SEG in Grossbritannien könnte in der Schweiz und in Deutschland den Anreiz (z.B. Hausbesitzer kann Ausgaben bezüglich erneuerbaren Enerigen in den nächsten 10 Jahren bei den Steuern abziehen) für Hausbesitzer und kleine Unternehmen erhöhen, in erneuerbare Energiesysteme zu investieren. Dadurch könnte der Anteil der erneuerbaren Energien insgesamt gesteigert werden.")
+    st.write("Die Implementierung eines Systems wie SEG in Grossbritannien könnte in der Schweiz und in Deutschland den Anreiz für Hausbesitzer und kleine Unternehmen erhöhen, in erneuerbare Energiesysteme zu investieren. Zum Beispiel Hausbesitzer können Ausgaben bezüglich erneuerbaren Enerigen in den nächsten 10 Jahren bei den Steuern abziehen). Dadurch könnte der Anteil der erneuerbaren Energien insgesamt gesteigert werden.")
     
     st.write("#### Policy Advice 3")
-    st.write("Da die Schweiz noch nicht viel Solarenergie erzeugt hat und ein Platzmangel herrscht, wäre eine vielversprechende Möglichkeit, Solaranlagen auf bereits vorhandener Infrastruktur wie z.B. Parkplätze, auf dem Wasser von Stauseen, Fassaden, Strommasten, Bahnstationen, usw. (siehe Plot bei 3. Vergleich Energieproduktion, Produktion der Solarenergie in Deutschland ist vorbildlich)")
-    
+    st.write("Da die Schweiz noch nicht viel Solarenergie erzeugt und es an Platz mangelt, bietet es sich an, Solaranlagen auf bereits vorhandener Infrastruktur wie z.B. Parkplätze, dem Wasser von Seen, Fassaden, Strommasten und Bahnstationen zu installieren (siehe Plot bei 3. Vergleich Energieproduktion, Produktion der Solarenergie in Deutschland ist vorbildlich). Die Schweiz hat bereits Solaranlagen auf dem Wasser (siehe [Link](https://houseofswitzerland.org/de/swissstories/umwelt/schweiz-hat-weltweit-erste-hochgelegene-schwimmende-solaranlage)), jedoch könnten solche Anlagen weiter ausgebaut werden. Eine Idee von Lucia Grüter ([SRF Reportage](https://www.srf.ch/news/schweiz/solarkraftwerke-auf-seen-fuenf-prozent-unserer-seen-koennten-das-russische-gas-ersetzen)) wäre, 5% der Schweizer Seen mit Photovoltaikanlagen zu bedecken und somit 15 TWh pro Jahr zu produzieren, was dem Energieverbrauch von 25% der Schweiz entspricht. Dadurch könnte das von Russland importierte Gas komplett ersetzt werden, was ein grosser Schritt in Richtung Klimaneutralität wäre. Wir finden diese Idee sehr interessant und auch umsetzbar.")
+
     st.write("#### Policy Advice 4")
-    st.write("In der EU gibt es einen Mangel an globalen Massnahmen. Indem Unternehmen wie Repsol freiwillige Massnahmen ergreifen, können sie nicht nur ihren eigenen ökologischen Fussabdruck reduzieren, sondern auch andere Unternehmen zur Nachahmung ermutigen. Diese Vorreiterrolle und der positive Einfluss können einen Dominoeffekt auslösen, bei dem immer mehr Unternehmen ihre eigenen Massnahmen zur Klimaneutralität entwickeln und umsetzen. Dieser kaskadierende Effekt könnte den Übergang zu einer kohlenstoffarmen Wirtschaft beschleunigen und dazu beitragen, den globalen Klimawandel effektiv anzugehen.")
+    st.write("Es gibt einen Mangel an globalen Massnahmen. Indem Unternehmen wie [Repsol](https://www.repsol.com/en/sustainability/climate-change/carbon-pricing/index.cshtml) freiwillige Massnahmen ergreifen, können sie nicht nur ihren eigenen ökologischen Fussabdruck reduzieren, sondern auch andere Unternehmen zur Nachahmung ermutigen. Diese Vorreiterrolle und der positive Einfluss können einen Dominoeffekt auslösen, bei dem immer mehr Unternehmen ihre eigenen Massnahmen zur Klimaneutralität entwickeln und umsetzen. Dieser kaskadierende Effekt könnte den Übergang zu einer kohlenstoffarmen Wirtschaft beschleunigen und dazu beitragen, den globalen Klimawandel effektiv anzugehen.")
     
+    # hypothese mit spanien regenfall und wasserkraft -> könnte auch in der schweiz passieren, dass weniger wasser vorhanden ist ect.
