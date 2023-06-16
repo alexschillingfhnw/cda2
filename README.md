@@ -1,27 +1,25 @@
 # cda2 - Policy Advices zur Energieerzeugung ohne Treibhausgasausstoss
 
 ## Dashboard
+Das Dashboard wurde mithilfe von Streamlit und Heroku erstellt und kann über den folgenden Link aufgerufen werden: https://cda2-policy-advices.herokuapp.com/
 
-Das Dashboard wurde mittels Streamlit und Heroku gemacht und man findet es hier: https://cda2-policy-advices.herokuapp.com/
-
-## Datastory
-Der Datastory befindet sich ebenfalls im Dashboard.
+## Datenstory
+Unsere Datenstory ist direkt im Dashboard integriert.
 
 ## Arbeitsprotokoll
-Wir haben [Notion](https://www.notion.so/CDA2-Challenge-Policy-Advices-f3ea5a4ed3fc421fa40557ebbdc30d85) verwendet. Wir haben dort Tasks mit Akzeptanzkriterien definiert und an den jeweiligen Teammitglieder zugeteilt.
+Für unsere Arbeitsorganisation haben wir Notion genutzt. Dort haben wir verschiedene Aufgaben mit dazugehörigen Akzeptanzkriterien definiert und diese entsprechend an unsere Teammitglieder verteilt. Weitere Informationen finden Sie unter folgendem Link: https://www.notion.so/CDA2-Challenge-Policy-Advices-f3ea5a4ed3fc421fa40557ebbdc30d85
 
 ## Daten
-Die Daten sind im Ordner /Data zu finden. Die meisten Dateien stammen von Our World in Data, gibt jedoch noch andere Quellen.
+Die verwendeten Daten finden Sie im Ordner /Data. Die meisten dieser Daten stammen von "Our World in Data", allerdings haben wir auch andere Quellen genutzt.
 
-## Python Dateien
-- app.py: Diese Datei ist unser Dashboard, welche mittels Streamlit programmiert wurde. 
-- EDA.ipynb: Hier wurden die ersten Daten gesammelt, bereinigt, gefiltert und visualisiert.
-- Old_Dashboard.ipynb: Dieser Notebook haben wir verwendet das Dashboard zu erstellen mittels Panel. Wir hatten jedoch Probleme, das Dashboard mit dem Tool Panel zu veröffentlichen, weil es einfach nicht mit Server-Tools wie Heroku oder Google Colab kompatibel war. Wir versuchten das ganze Dashboard von einem Notebook zu einem normalen Python File zu konvertieren, jedoch scheiterten wir auch hier.
-- helper.py: Hier haben wir "Hilfe-Funktionen" programmiert, damit wir den gleichen Code nicht überall kopieren mussten. 
+## Python-Dateien
+- app.py: Dieses Skript beinhaltet das Streamlit-Dashboard, welches unser Haupt-Interface bildet.
+- EDA.ipynb: In diesem Jupyter Notebook wurden die Rohdaten gesammelt, bereinigt, gefiltert und erste Visualisierungen erstellt.
+- Old_Dashboard.ipynb: Dieses Jupyter Notebook diente ursprünglich der Erstellung des Dashboards mittels der Bibliothek Panel. Da jedoch Kompatibilitätsprobleme mit den Deployment-Tools wie Heroku oder Google Colab auftraten, haben wir uns gegen diese Lösung entschieden.
+- helper.py: In dieser Datei befinden sich Hilfsfunktionen, die wir geschrieben haben, um redundanten Code zu vermeiden und die Lesbarkeit zu verbessern.
 
-## Andere Dateien
-- Procfile
-- setup.sh: 
-- requirements.txt: Beinhaltet alle Bibliotheken, die für das Dashboard verwendet werden (braucht man für das Deployment des Dashboards)
-- .DS_Store: Kann man ignorieren
-- ipynb_checkpoints: Kann man ignorieren
+## Weitere Dateien
+- Procfile: Wird für die Bereitstellung der Anwendung auf Heroku benötigt.
+- setup.sh: Ein Shell-Skript, welches die nötigen Schritte zur Einrichtung des Dashboards auf dem Server automatisiert.
+- requirements.txt: Diese Datei enthält alle Python-Bibliotheken, die für das Laufen des Dashboards benötigt werden. Sie ist vor allem für das Deployment auf dem Server wichtig.
+- .DS_Store und ipynb_checkpoints: Diese Dateien bzw. Ordner sind systemgeneriert und können ignoriert werden.
